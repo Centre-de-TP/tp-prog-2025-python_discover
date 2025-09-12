@@ -1,121 +1,63 @@
 <!doctype html>
 <html lang="fr">
 <head>
-    <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width,initial-scale=1" />
-    <link rel="stylesheet" href="style.css" />
-    <title>Python Practical</title>
+    <meta charset="utf-8">
+    <title>Ouverture codée</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="eye.css">
+    <script src="https://cdn.jsdelivr.net/pyodide/v0.24.1/full/pyodide.js"></script>
 </head>
 <body>
+<!-- Intro noire -->
+<div class="intro-screen">
+    <p class="intro-text" id="introText"></p>
+
+    <!-- Zone code cachée au début -->
+    <div class="code-challenge hidden" id="codeChallenge">
+        <p><b>Try using the print function to display the "open" key word</b></p>
+        <textarea id="codeInput">print("open")</textarea>
+        <div class="row">
+            <button id="runCode">Execute</button>
+            <button class="btn" id="HelpGetPrint">Help</button>
+        </div>
+        <p class="console" id="consoleOutput"></p>
+        <div id="feedback"></div>
+    </div>
+</div>
+
+<!-- Paupières -->
+<div class="eyelid top"></div>
+<div class="eyelid bottom"></div>
+
+<!-- Ton site principal -->
 <div class="container">
     <header class="header">
         <div class="brand">
-            <div class="logo">RC</div>
+            <div class="logo">⚡</div>
             <div>
                 <div class="title">First steps in the new World</div>
-                <div class="subtitle">Python - Menu</div>
+                <div class="subtitle">Python - Chapter1 - Exo1</div>
             </div>
-        </div>
-        <div class="row">
-            <button class="btn" id="DownloadAllPages">Download</button>
         </div>
     </header>
-
-    <main class="grid">
-        <section class="card">
+    <div class="grid">
+        <div class="card">
             <div class="lore-header">
-                <div class="lore-illustration">⚔️</div>
                 <div class="lore-text">
                     <h1>Chapter 1 - World discover</h1>
-                    <p>This Chapter is composed of the real most basics python tools.</p>
+                    <p>Now that you have made your first print, the journey can begin.</p>
+                    <script>
+                        function loadHome() {
+                            window.location = '../index.html';
+                        }
+                    </script>
+                    <button class="btn" id="getBack" onclick="loadHome()">🚪 Home</button>
                 </div>
             </div>
-
-            <div class="exo-grid">
-                <article class="exo">
-                    <div class="tag">Exo 1</div>
-                    <h3>Open Your Eyes</h3>
-                    <p>Display some text and see what the computer does.</p>
-                    <button class="btn secondary">Open lesson</button>
-                </article>
-
-                <article class="exo">
-                    <div class="tag">Exo 2</div>
-                    <h3>Talk learning</h3>
-                    <p>Ask the user some information.</p>
-                    <button class="btn secondary">Open lesson</button>
-                </article>
-
-                <article class="exo">
-                    <div class="tag">Exo 3</div>
-                    <h3>World if it could be classified</h3>
-                    <p>Discover python's types.</p>
-                    <button class="btn secondary">Open lesson</button>
-                </article>
-
-                <article class="exo">
-                    <div class="tag">Exo 4</div>
-                    <h3>Kind of a big pocket</h3>
-                    <p>Discover the magic dimension with variables.</p>
-                    <button class="btn secondary">Open lesson</button>
-                </article>
-
-                <article class="exo">
-                    <div class="tag">Exo 5</div>
-                    <h3>How to operate</h3>
-                    <p>The mathematics are everywhere, let's discover it.</p>
-                    <button class="btn secondary">Open lesson</button>
-                </article>
-
-                <article class="exo">
-                    <div class="tag">Exo 6</div>
-                    <h3>Life is tests</h3>
-                    <p>It's time to learn about conditions.</p>
-                    <button class="btn secondary">Open lesson</button>
-                </article>
-
-                <!-- ajouter d'autres exos -->
-            </div>
-
-            <div style="margin-top:14px">
-                <div class="small">Progression</div>
-                <div class="stepper">
-                    <div class="step">Variables</div>
-                    <div class="step">Boucles</div>
-                    <div class="step">Conditions</div>
-                </div>
-            </div>
-        </section>
-
-        <aside class="card">
-            <h3 style="margin-top:0">Console du jeu</h3>
-            <div class="game-panel" id="game">
-                Bienvenue, apprenti(e). Tape <code>start()</code> pour lancer ta quête...
-            </div>
-
-            <div class="console-input">
-                <input class="input" id="cmd" placeholder="Entrée simulateur (ex: start)"/>
-                <button class="btn" id="send">Entrer</button>
-            </div>
-
-            <div style="margin-top:12px" class="small">Astuce: tu peux intégrer un interpréteur Python côté serveur ou simuler des réponses JS pour les exercices interactifs.</div>
-        </aside>
-    </main>
+        </div>
+    </div>
 </div>
 
-<script>
-    // petit script pour simuler l'entrée (optionnel)
-    document.getElementById('send').addEventListener('click', ()=>{
-        const v = document.getElementById('cmd').value.trim();
-        const game = document.getElementById('game');
-        if(!v) return;
-        game.textContent += "\\n> " + v;
-        if(v.toLowerCase()==='start' || v.toLowerCase()==='start()'){
-            game.textContent += "\\nLe Maître te salue. Ta première épreuve : créer 3 variables.";
-        }
-        document.getElementById('cmd').value='';
-        game.scrollTop = game.scrollHeight;
-    });
-</script>
+<script src="script.js"></script>
 </body>
 </html>
