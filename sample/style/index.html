@@ -1,0 +1,92 @@
+<!doctype html>
+<html lang="fr">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <link rel="stylesheet" href="styles.css" />
+    <title>TP Python — Royaume des Codes</title>
+</head>
+<body>
+<div class="container">
+    <header class="header">
+        <div class="brand">
+            <div class="logo">RC</div>
+            <div>
+                <div class="title">Royaume des Codes</div>
+                <div class="subtitle">TP Python — Débutants → Jeu console</div>
+            </div>
+        </div>
+        <div class="row">
+            <button class="btn">Commencer</button>
+            <button class="btn secondary">Télécharger le TP</button>
+        </div>
+    </header>
+
+    <main class="grid">
+        <section class="card">
+            <div class="lore-header">
+                <div class="lore-illustration">⚔️</div>
+                <div class="lore-text">
+                    <h1>Chapitre 1 — La Pierre des Variables</h1>
+                    <p>Apprends à stocker l'identité du héros, sa vie et son or. Ces exercices sont courts et illustrés.</p>
+                </div>
+            </div>
+
+            <div class="exo-grid">
+                <article class="exo">
+                    <div class="tag">Exo 1</div>
+                    <h3>Variables basiques</h3>
+                    <p>Créer nom, vie et or puis les afficher.</p>
+                </article>
+
+                <article class="exo">
+                    <div class="tag">Exo 2</div>
+                    <h3>Entrée utilisateur</h3>
+                    <p>Demander le nom du joueur et le stocker.</p>
+                </article>
+
+                <!-- ajouter d'autres exos -->
+            </div>
+
+            <div style="margin-top:14px">
+                <div class="small">Progression</div>
+                <div class="stepper">
+                    <div class="step">Variables</div>
+                    <div class="step">Boucles</div>
+                    <div class="step">Conditions</div>
+                </div>
+            </div>
+        </section>
+
+        <aside class="card">
+            <h3 style="margin-top:0">Console du jeu</h3>
+            <div class="game-panel" id="game">
+                Bienvenue, apprenti(e). Tape <code>start()</code> pour lancer ta quête...
+            </div>
+
+            <div class="console-input">
+                <input class="input" id="cmd" placeholder="Entrée simulateur (ex: start)"/>
+                <button class="btn" id="send">Entrer</button>
+            </div>
+
+            <div style="margin-top:12px" class="small">Astuce: tu peux intégrer un interpréteur Python côté serveur ou simuler des réponses JS pour les exercices interactifs.</div>
+        </aside>
+    </main>
+</div>
+
+<script>
+    // petit script pour simuler l'entrée (optionnel)
+    document.getElementById('send').addEventListener('click', ()=>{
+        const v = document.getElementById('cmd').value.trim();
+        const game = document.getElementById('game');
+        if(!v) return;
+        game.textContent += "\\n> " + v;
+        if(v.toLowerCase()==='start' || v.toLowerCase()==='start()'){
+            game.textContent += "\\nLe Maître te salue. Ta première épreuve : créer 3 variables.";
+        }
+        document.getElementById('cmd').value='';
+        game.scrollTop = game.scrollHeight;
+    });
+</script>
+</body>
+</html>

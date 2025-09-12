@@ -1,0 +1,107 @@
+<!doctype html>
+<html lang="fr">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Python Playground Synchrone</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background: #0f1724;
+            color: #eee;
+            padding: 20px;
+        }
+        h1 { color: #7c6cff; }
+
+        textarea {
+            width: 100%;
+            font-family: monospace;
+            border-radius: 8px;
+            padding: 10px;
+            font-size: 14px;
+        }
+
+        #code {
+            height: 180px;
+            background: #111827;
+            color: #d1d5db;
+            border: 1px solid #374151;
+        }
+
+        #console {
+            height: 160px;
+            background: #1f2937;
+            color: #d1d5db;
+            border: 1px solid #374151;
+            margin-top: 12px;
+            resize: none;
+        }
+
+        button {
+            margin-top: 10px;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 8px;
+            background: #7c6cff;
+            color: white;
+            font-weight: bold;
+            cursor: pointer;
+        }
+
+        button:hover { background: #5b4fd1; }
+    </style>
+</head>
+<body>
+<h1>💻 Python Playground</h1>
+<p>Écris ton code Python puis clique sur <b>Exécuter</b> :</p>
+
+<textarea id="code">print("Hello, Royaume des Codes!")</textarea><br>
+<button id="run">Exécuter</button>
+
+<textarea id="console" readonly></textarea>
+
+<script src="https://cdn.jsdelivr.net/pyodide/v0.24.1/full/pyodide.js"></script>
+<script>
+    let pyodide;
+
+    loadPyodide().then(p => {
+        pyodide = p;
+
+        // Rediriger stdout/stderr vers notre console
+        pyodide.runPython(`
+import sys
+
+class JSWriter:
+    def __init__(self, name):
+        self.name = name
+    def write(self, s):
+        if s.strip() != "":
+            from js import console_output
+            console_output(s)
+    def flush(self): pass
+
+sys.stdout = JSWriter("stdout")
+sys.stderr = JSWriter("stderr")
+      `);
+
+        document.getElementById("run").addEventListener("click", () => {
+            const code = document.getElementById("code").value;
+            const consoleEl = document.getElementById("console");
+            consoleEl.value = ""; // reset
+
+            // Fonction JS appelée depuis Python
+            window.console_output = function(text){
+                consoleEl.value += text + "\n";
+                consoleEl.scrollTop = consoleEl.scrollHeight;
+            }
+
+            try {
+                pyodide.runPython(code);
+            } catch (err) {
+                consoleEl.value += "⚠️ Erreur: " + err + "\n";
+            }
+        });
+    });
+</script>
+</body>
+</html>
