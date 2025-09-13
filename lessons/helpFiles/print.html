@@ -13,64 +13,60 @@
             <div class="logo">RC</div>
             <div>
                 <div class="title">First steps in the new World</div>
-                <div class="subtitle">Python - Help Menu</div>
+                <div class="subtitle">Python - Help - Print</div>
             </div>
         </div>
         <div class="row">
             <button class="btn" id="DownloadAllPages">Download</button>
         </div>
     </header>
-
-    <main class="grid">
-        <section class="card">
-            <div class="lore-header">
-                <div class="lore-text">
-                    <h1>Chapter 1 - World discover</h1>
-                    <p>The most basics python tools.</p>
-                </div>
-            </div>
-
-            <div class="exo-grid">
-                <article class="exo">
-                    <h3>print</h3>
-                    <p>Builtin function to display objects.</p>
-                    <script>
-                        function loadPage1() {
-                            window.location = 'lessons/chap1exo1.html'
-                        }
-                    </script>
-                    <button class="btn secondary" onclick="loadPage1()">Open help</button>
-                </article>
-
-                <article class="exo">
-                    <h3>input</h3>
-                    <p>Builtin function to ask the player.</p>
-                    <script>
-                        function loadPage1() {
-                            window.location = 'lessons/chap1exo1.html'
-                        }
-                    </script>
-                    <button class="btn secondary" onclick="loadPage1()">Open help</button>
-                </article>
-
-            </div>
-        </section>
-    </main>
+    <h1 class="underline">The "print" Function</h1>
+    <div class="center-left">
+        <div class="column">
+            <p>
+                In programming, it will be very useful for you to display text or
+                elements on the computer.
+                <br>
+                <br>
+                Each line of code is an order that you give to the computer.
+                <br>
+                So in order to display something, you will have to write a code line which tell the computer to
+                display the desired element.
+                <br>
+                <br>
+                The magic thing to do that is the print.
+                <br>
+                But basically when you write your print, you tell the computer to display the thing between the
+                parenthesis.
+                <br>
+                You can see an example below :
+            </p>
+            <div class="code-block">print("Hello World")
+>>> Hello World</div>
+            <p>
+                Here you tell the computer to display the sentence "Hello World".
+                <br>
+                <br>
+                It's possible to write other things than sentences like in the example below :
+            </p>
+            <div class="code-block">print(1001)
+>>> 1001</div>
+            <p>
+                Here you tell the computer to display the number 1001.
+                <br>
+                <br>
+                To go further with the print, it's possible to let the print create sentences with words you give.
+            </p>
+            <div class="code-block">print("I'm", "a", "sentence")
+>>> I'm a sentence</div>
+            <p>
+                Here you tell the computer to display the sentence "I'm a sentence" after building it.
+                <br>
+                <br>
+                This is the end of the lesson, don't forget to ask for help if you don't understand.
+            </p>
+        </div>
+    </div>
 </div>
-
-<script>
-    // petit script pour simuler l'entrée (optionnel)
-    document.getElementById('send').addEventListener('click', ()=>{
-        const v = document.getElementById('cmd').value.trim();
-        const game = document.getElementById('game');
-        if(!v) return;
-        game.textContent += "\\n> " + v;
-        if(v.toLowerCase()==='start' || v.toLowerCase()==='start()'){
-            game.textContent += "\\nLe Maître te salue. Ta première épreuve : créer 3 variables.";
-        }
-        document.getElementById('cmd').value='';
-        game.scrollTop = game.scrollHeight;
-    });
-</script>
 </body>
 </html>

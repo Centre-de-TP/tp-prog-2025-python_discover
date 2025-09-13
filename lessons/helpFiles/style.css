@@ -15,10 +15,9 @@
 
 /* Reset minimal */
 *{box-sizing:border-box}
-html,body{height:100%}
 body{
     margin:0;
-    background: radial-gradient(1200px 600px at 10% 10%, rgba(124,108,255,0.08), transparent),
+    background: radial-gradient(1200px 4000px at 10% 10%, rgba(124,108,255,0.08), transparent),
     radial-gradient(900px 400px at 90% 90%, rgba(0,194,168,0.03), transparent),
     var(--bg);
     color: #e6eef8;
@@ -202,3 +201,28 @@ pre.code{
 /* Utility */
 .row{display:flex;gap:12px;align-items:center}
 .center{display:grid;place-items:center}
+.underline {text-decoration: underline;}
+.center-left {
+    display: flex;
+    justify-content: flex-start; /* align left horizontally */
+    height: 100%;              /* full screen height */
+    padding: 100px
+}
+.column {
+    display: flex;
+    flex-direction: column; /* stack items vertically */
+}
+.code-block {
+    background: rgba(0, 0, 0, 0.6);   /* fond sombre */
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 6px;
+    padding: 10px 14px;
+    margin: 12px 0;
+    font-family: "Fira Code", "Source Code Pro", monospace;
+    font-size: 0.9rem;
+    line-height: 1.4;
+    white-space: pre-wrap;  /* garde les sauts de ligne */
+    word-wrap: break-word;  /* évite le débordement */
+    color: #e6eef8;
+}
+
