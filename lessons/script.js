@@ -1,7 +1,14 @@
-let pyodide;
-async function main() {
-    pyodide = await loadPyodide();
+"use strict";
 
+// Fonction de lecture des fichiers builtins de Skulpt
+function builtinRead(x) {
+    if (Sk.builtinFiles === undefined || Sk.builtinFiles["files"][x] === undefined) {
+        throw "File not found: '" + x + "'";
+    }
+    return Sk.builtinFiles["files"][x];
+}
+
+async function main() {
     // Texte qui apparaît progressivement
     const introLines = [
         [400, "."],
@@ -10,7 +17,7 @@ async function main() {
         [700, "He. . ."],
         [1000, "Hel . l . o"],
         [1000, "Hello"],
-        [2500, "Can you here me ?"],
+        [2500, "Can you hear me ?"],
         [2000, "Oh !!"],
         [2000, "Finally awake ?"],
         [3000, "I think it'll be better if you could open your eyes first."],
@@ -34,15 +41,17 @@ async function main() {
             i++;
             setTimeout(showNextLine, introLines[i - 1][0]);
         } else {
-            // Affiche le challenge quand tous les textes sont apparus
             introText.textContent = "";
             challenge.classList.remove("hidden");
         }
     }
     showNextLine();
 
-    // Exécution du code
-    document.getElementById("runCode").addEventListener("click", async () => {
+    // Variable d'étape (1er ou 2e challenge)
+    let step = 1;
+
+    // Exécution du code avec Skulpt
+    document.getElementById("runCode").addEventListener("click", () => {
         const code = document.getElementById("codeInput").value;
         const outputEl = document.getElementById("consoleOutput");
         const feedback = document.getElementById("feedback");
@@ -50,28 +59,51 @@ async function main() {
         outputEl.textContent = "";
         feedback.textContent = "";
 
-        try {
-            // Rediriger stdout/stderr vers JS
-            pyodide.setStdout({
-                batched: (msg) => { outputEl.textContent += msg; }
-            });
-            pyodide.setStderr({
-                batched: (msg) => { outputEl.textContent += msg; }
-            });
+        Sk.configure({
+            output: function (text) {
+                outputEl.textContent += text;
+            },
+            read: builtinRead,
+            inputfunTakesPrompt: true,
+            execLimit: 10000,
+            killableWhile: true,
+            killableFor: true,
+        });
 
-            // ⚡ Utiliser runPythonAsync pour supporter stdout
-            await pyodide.runPythonAsync(code);
+        // Lance le code Python
+        var myPromise = Sk.misceval.asyncToPromise(function () {
+            return Sk.importMainWithBody("<stdin>", false, code, true);
+        });
 
-            // Vérification du résultat attendu
-            if (outputEl.textContent.trim() === "open") {
-                feedback.textContent = "✅ Success, You finally opened your eyes!";
-                document.body.classList.add("open");
-            } else {
-                feedback.textContent = "❌ Oh no, the sentence wasn't correct ..\nYou can use the Help button to get a little help";
+        myPromise.then(
+            function () {
+                const result = outputEl.textContent.trim();
+
+                if (step === 1 && result === "open") {
+                    feedback.textContent = "✅ Good! But it seems harder than that...";
+                    // reset console + input
+                    outputEl.textContent = "";
+                    document.getElementById("codeInput").value = "";
+                    // demander le nouveau challenge
+                    setTimeout(() => {
+                        feedback.textContent = ""
+                        let description = document.getElementById("programDescription");
+                            description.textContent = "Now try again, but this time print:\n\n\"I really want to open them\"";
+                        step = 2;
+                    }, 1200);
+                } else if (step === 2 && result === "I really want to open them") {
+                    feedback.textContent = "✅ Perfect... Your eyes are opening!";
+                    document.body.classList.add("open");
+                } else {
+                    feedback.textContent =
+                        "❌ Not quite right... Try again!";
+                }
+            },
+            function (err) {
+                feedback.textContent =
+                    "⚠️ Error:\n\n" + err.toString();
             }
-        } catch (err) {
-            feedback.textContent = "⚠️ You already tried hard things but unfortunately you failed :\n\n" + err;
-        }
+        );
     });
 }
 main();

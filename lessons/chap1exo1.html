@@ -5,7 +5,8 @@
     <title>Ouverture codée</title>
     <link rel="stylesheet" href="style.css">
     <link rel="stylesheet" href="eye.css">
-    <script src="https://cdn.jsdelivr.net/pyodide/v0.24.1/full/pyodide.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/skulpt@1.2.0/dist/skulpt.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/skulpt@1.2.0/dist/skulpt-stdlib.js"></script>
 </head>
 <body>
 <!-- Intro noire -->
@@ -14,7 +15,7 @@
 
     <!-- Zone code cachée au début -->
     <div class="code-challenge hidden" id="codeChallenge">
-        <p><b>Try using the print function to display the "open" key word</b></p>
+        <p id="programDescription"><b>Try using the print function to display the "open" key word</b></p>
         <textarea id="codeInput">print("open")</textarea>
         <div class="row">
             <button id="runCode">Execute</button>
