@@ -19,7 +19,12 @@
         <textarea id="codeInput">print("open")</textarea>
         <div class="row">
             <button id="runCode">Execute</button>
-            <button class="btn" id="HelpGetPrint">Help</button>
+            <script>
+                function loadPrintHelp() {
+                    window.open('helpFiles/print.html', '_blank')
+                }
+            </script>
+            <button class="btn" id="HelpGetPrint" onclick="loadPrintHelp()">Help</button>
         </div>
         <p class="console" id="consoleOutput"></p>
         <div id="feedback"></div>
