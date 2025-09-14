@@ -8,6 +8,8 @@
     z-index: 999;
     max-width: 250px;
     font-family: var(--ff-sans);
+    width: 48px;
+    height: 48px;
 }
 
 .assistantImg {
