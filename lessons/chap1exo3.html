@@ -1,0 +1,115 @@
+<!doctype html>
+<html lang="fr">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <link rel="stylesheet" href="style.css" />
+    <link rel="stylesheet" href="console.css" />
+    <link rel="stylesheet" href="../Pixi/assistant.css">
+    <link rel="stylesheet" href="longbody.css">
+
+    <script src="https://cdn.jsdelivr.net/npm/skulpt@1.2.0/dist/skulpt.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/skulpt@1.2.0/dist/skulpt-stdlib.js"></script>
+
+    <title>Chap1 - Exo3</title>
+</head>
+<body>
+    <header class="header">
+        <div class="brand">
+            <div class="logo">RC</div>
+            <div>
+                <div class="title">First steps in the new World</div>
+                <div class="subtitle">Python - Chapter1 - Exo3</div>
+            </div>
+        </div>
+    </header>
+
+    <main class="grid">
+        <section class="card">
+            <div class="lore-header">
+                <div class="lore-text">
+                    <h1>Chapter 1 - World discover</h1>
+                    <p>This step introduce the storage and structure system of a code.</p>
+                </div>
+            </div>
+            <p>
+                <br>
+                We will discover the concept of variables.
+                <br>
+                The goal here is to write a program which store a user input into a variable.
+                <br>
+                To do this, create a variable with the tag "username" and ask the user for his "Username" he wants.
+                <br>
+                Please, be careful to enter the correct strings in the correct spaces.
+            </p>
+
+            <div class="code-challenge" id="codeChallenge">
+                <textarea id="codeInput">print("Hello")</textarea>
+                <div class="row">
+                    <button id="runCode">Execute</button>
+                    <script>
+                        function loadPrintHelp3() {
+                            window.open('helpFiles/variableAndTypes.html', '_blank')
+                        }
+                    </script>
+                    <button class="btn" id="HelpGetVar" onclick="loadPrintHelp3()">Help</button>
+                </div>
+                <div class="console" id="consoleOutput"></div>
+                <div id="feedback"></div>
+            </div>
+
+            <div class="c hide" id="secondPart">
+                <p>
+                    <br>
+                    Let's now try to use the cast methods to create a number from a string.
+                    <br>
+                    Write a program which asks the firstname of the user and then, his lastname.
+                    <br>
+                    The program should print the name of the user.
+                </p>
+
+                <div class="code-challenge" id="codeChallenge2">
+                    <textarea id="codeInput2"># Replace the following comments to complete the code :
+
+# Create a variable a which is a string representing a number.
+
+# Using the casting methods, create a variable b which is the copy of the integer value represented in a.
+
+print(type(b))</textarea>
+                    <div class="row">
+                        <button id="runCode2">Execute</button>
+                        <script>
+                            function loadPrintHelp4() {
+                                window.open('helpFiles/Casting.html', '_blank')
+                            }
+                        </script>
+                        <button class="btn" id="HelpGetPrint2" onclick="loadPrintHelp4()">Help</button>
+                    </div>
+                    <div class="console" id="consoleOutput2"></div>
+                    <div id="feedback2"></div>
+                </div>
+            </div>
+
+            <div class="hide" id="thirdPart">
+                <p>Isn't it the time to go try something harder ?.</p>
+                <script>
+                    function loadHome() {
+                        window.location = '../index.html';
+                    }
+                </script>
+                <div id="backButtonHidden">
+                    <button class="btn" id="getBack" onclick="loadHome()">🚪 Home</button>
+                </div>
+            </div>
+        </section>
+    </main>
+    <div class="assistant" id="assistant">
+        <img class= "assistantImg" src="../Pixi/normal.png" alt="Assistant" id="assistantImage" width="50px" height="50px">
+        <div class="bubble" id="assistantBubble"></div>
+    </div>
+
+
+
+    <script type="module" src="chap1exo3.js"></script>
+</body>
+</html>

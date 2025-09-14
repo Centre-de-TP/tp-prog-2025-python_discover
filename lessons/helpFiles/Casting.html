@@ -1,0 +1,69 @@
+<!doctype html>
+<html lang="fr">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <link rel="stylesheet" href="style.css" />
+    <title>Python Help - Casting</title>
+</head>
+<body>
+<div class="container">
+    <header class="header">
+        <div class="brand">
+            <div class="logo">RC</div>
+            <div>
+                <div class="title">First steps in the new World</div>
+                <div class="subtitle">Python - Help - Casting</div>
+            </div>
+        </div>
+        <div class="row">
+            <button class="btn" id="DownloadAllPages">Download</button>
+        </div>
+    </header>
+    <h1 class="underline">The "casts" functions</h1>
+    <div class="center-left">
+        <div class="column">
+            <p>
+                Now that you saw the types, it's often useful to change an object type.
+                <br>
+                To do this, we created some other functions that a program can call.
+            </p>
+            <div class="code-block">variable = 42
+print(type(variable))
+>>> int
+
+old_variable = 42
+new_variable = str(old_variable)
+print(type(new_variable))
+>>> str</div>
+            <p>
+                As you may have noticed already, to change an object type, you just need to call the function which
+                name is the name of the desired type.
+            </p>
+            <div class="code-block">variable = "42"
+print(type(variable))
+>>> str
+
+old_variable = "42"
+new_variable = int(old_variable)
+print(type(new_variable))
+>>> int</div>
+            <p>
+                But be careful with the type changing.
+                <br>
+                Try to create an int with a text containing other things than numbers will create an error.
+            </p>
+            <div class="code-block">old_variable = "text"
+new_variable = int(old_variable)
+print(type(new_variable))
+>>> ValueError: invalid literal for int() with base 10: 'text'</div>
+            <p>
+                <br>
+                <br>
+                This is the end of the lesson, don't forget to ask for help if you don't understand.
+            </p>
+        </div>
+    </div>
+</div>
+</body>
+</html>
