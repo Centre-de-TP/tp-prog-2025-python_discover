@@ -1,20 +1,20 @@
 .assistant {
     position: fixed;
-    bottom: 20px;
+    top: 20px;          /* passe de bottom à top */
     right: 20px;
     display: flex;
-    align-items: flex-end;
-    gap: 10px;
+    flex-direction: column; /* empile verticalement : image en haut, bulle en bas */
+    align-items: flex-end;  /* aligne à droite */
+    gap: 8px;               /* espace entre image et bulle */
     z-index: 999;
     max-width: 250px;
     font-family: var(--ff-sans);
-    width: 48px;
-    height: 48px;
 }
 
 .assistantImg {
     width: 48px;
     height: 48px;
+    border-radius: 50%;     /* si tu veux garder style rond */
 }
 
 .assistant .bubble {
@@ -27,14 +27,16 @@
     line-height: 1.3;
     display: none; /* caché au départ */
     position: relative;
+    max-width: 220px;
 }
 
+/* Petit triangle qui pointe vers l'image */
 .assistant .bubble::after {
     content: "";
     position: absolute;
-    bottom: -6px;
-    right: 12px;
+    top: -6px;          /* triangle en haut de la bulle */
+    right: 12px;        /* aligne avec la bulle */
     border-width: 6px;
     border-style: solid;
-    border-color: var(--accent) transparent transparent transparent;
+    border-color: transparent transparent var(--accent) transparent;
 }
