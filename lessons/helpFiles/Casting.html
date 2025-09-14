@@ -4,7 +4,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width,initial-scale=1" />
     <link rel="stylesheet" href="style.css" />
-    <title>Python Help - Print</title>
+    <title>Python Help - Casting</title>
 </head>
 <body>
 <div class="container">
@@ -13,54 +13,51 @@
             <div class="logo">RC</div>
             <div>
                 <div class="title">First steps in the new World</div>
-                <div class="subtitle">Python - Help - Print</div>
+                <div class="subtitle">Python - Help - Casting</div>
             </div>
         </div>
         <div class="row">
             <button class="btn" id="DownloadAllPages">Download</button>
         </div>
     </header>
-    <h1 class="underline">The "print" Function</h1>
+    <h1 class="underline">The "casts" functions</h1>
     <div class="center-left">
         <div class="column">
             <p>
-                In programming, it will be very useful for you to display text or
-                elements on the computer.
+                Now that you saw the types, it's often useful to change an object type.
                 <br>
-                <br>
-                Each line of code is an order that you give to the computer.
-                <br>
-                So in order to display something, you will have to write a code line which tell the computer to
-                display the desired element.
-                <br>
-                <br>
-                The magic thing to do that is the print.
-                <br>
-                But basically when you write your print, you tell the computer to display the thing between the
-                parenthesis.
-                <br>
-                You can see an example below :
+                To do this, we created some other functions that a program can call.
             </p>
-            <div class="code-block">print("Hello World")
->>> Hello World</div>
+            <div class="code-block">variable = 42
+print(type(variable))
+>>> int
+
+old_variable = 42
+new_variable = str(old_variable)
+print(type(new_variable))
+>>> str</div>
             <p>
-                Here you tell the computer to display the sentence "Hello World".
-                <br>
-                <br>
-                It's possible to write other things than sentences like in the example below :
+                As you may have noticed already, to change an object type, you just need to call the function which
+                name is the name of the desired type.
             </p>
-            <div class="code-block">print(1001)
->>> 1001</div>
+            <div class="code-block">variable = "42"
+print(type(variable))
+>>> str
+
+old_variable = "42"
+new_variable = int(old_variable)
+print(type(new_variable))
+>>> int</div>
             <p>
-                Here you tell the computer to display the number 1001.
+                But be careful with the type changing.
                 <br>
-                <br>
-                To go further with the print, it's possible to let the print create sentences with words you give.
+                Try to create an int with a text containing other things than numbers will create an error.
             </p>
-            <div class="code-block">print("I'm", "a", "sentence")
->>> I'm a sentence</div>
+            <div class="code-block">old_variable = "text"
+new_variable = int(old_variable)
+print(type(new_variable))
+>>> ValueError: invalid literal for int() with base 10: 'text'</div>
             <p>
-                Here you tell the computer to display the sentence "I'm a sentence" after building it.
                 <br>
                 <br>
                 This is the end of the lesson, don't forget to ask for help if you don't understand.
