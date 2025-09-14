@@ -1,0 +1,76 @@
+<!doctype html>
+<html lang="fr">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <link rel="stylesheet" href="style.css" />
+    <title>Python Practical</title>
+</head>
+<body>
+<div class="container">
+    <header class="header">
+        <div class="brand">
+            <div class="logo">RC</div>
+            <div>
+                <div class="title">First steps in the new World</div>
+                <div class="subtitle">Python - Help Menu</div>
+            </div>
+        </div>
+        <div class="row">
+            <button class="btn" id="DownloadAllPages">Download</button>
+        </div>
+    </header>
+
+    <main class="grid">
+        <section class="card">
+            <div class="lore-header">
+                <div class="lore-text">
+                    <h1>Chapter 1 - World discover</h1>
+                    <p>The most basics python tools.</p>
+                </div>
+            </div>
+
+            <div class="exo-grid">
+                <article class="exo">
+                    <h3>print</h3>
+                    <p>Builtin function to display objects.</p>
+                    <script>
+                        function loadPage1() {
+                            window.location = 'lessons/chap1exo1.html'
+                        }
+                    </script>
+                    <button class="btn secondary" onclick="loadPage1()">Open help</button>
+                </article>
+
+                <article class="exo">
+                    <h3>input</h3>
+                    <p>Builtin function to ask the player.</p>
+                    <script>
+                        function loadPage1() {
+                            window.location = 'lessons/chap1exo1.html'
+                        }
+                    </script>
+                    <button class="btn secondary" onclick="loadPage1()">Open help</button>
+                </article>
+
+            </div>
+        </section>
+    </main>
+</div>
+
+<script>
+    // petit script pour simuler l'entrée (optionnel)
+    document.getElementById('send').addEventListener('click', ()=>{
+        const v = document.getElementById('cmd').value.trim();
+        const game = document.getElementById('game');
+        if(!v) return;
+        game.textContent += "\\n> " + v;
+        if(v.toLowerCase()==='start' || v.toLowerCase()==='start()'){
+            game.textContent += "\\nLe Maître te salue. Ta première épreuve : créer 3 variables.";
+        }
+        document.getElementById('cmd').value='';
+        game.scrollTop = game.scrollHeight;
+    });
+</script>
+</body>
+</html>
