@@ -4,99 +4,44 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width,initial-scale=1" />
     <link rel="stylesheet" href="style.css" />
+    <link rel="stylesheet" href="../Pixi/assistant.css">
     <title>Python Practical</title>
 </head>
 <body>
-<div class="container">
     <header class="header">
         <div class="brand">
             <div class="logo">RC</div>
             <div>
                 <div class="title">First steps in the new World</div>
-                <div class="subtitle">Python - Menu</div>
+                <div class="subtitle">Python - Chapter1 - Exo1</div>
             </div>
-        </div>
-        <div class="row">
-            <button class="btn" id="DownloadAllPages">Download</button>
         </div>
     </header>
 
     <main class="grid">
         <section class="card">
             <div class="lore-header">
-                <div class="lore-illustration">⚔️</div>
                 <div class="lore-text">
                     <h1>Chapter 1 - World discover</h1>
-                    <p>This Chapter is composed of the real most basics python tools.</p>
+                    <p>The second step is to interact with a user.</p>
                 </div>
             </div>
+            <p>
+                <br>
+                You just woke up, but you need to remember who you are.
+                <br>
+                Write a program which asks the firstname of the user and then, the last name of the user.
+            </p>
 
             <div class="exo-grid">
-                <article class="exo">
-                    <div class="tag">Exo 1</div>
-                    <h3>Open Your Eyes</h3>
-                    <p>Display some text and see what the computer does.</p>
-                    <script>
-                        function loadPage1() {
-                            window.location = 'lessons/chap1exo1.html'
-                        }
-                    </script>
-                    <button class="btn secondary" onclick="loadPage1()">Open lesson</button>
-                </article>
-
-                <article class="exo">
-                    <div class="tag">Exo 2</div>
-                    <h3>Talk learning</h3>
-                    <p>Ask the user some information.</p>
-                    <button class="btn secondary">Open lesson</button>
-                </article>
-
-                <article class="exo">
-                    <div class="tag">Exo 3</div>
-                    <h3>World if it could be classified</h3>
-                    <p>Discover python's types.</p>
-                    <button class="btn secondary">Open lesson</button>
-                </article>
-
-                <article class="exo">
-                    <div class="tag">Exo 4</div>
-                    <h3>Kind of a big pocket</h3>
-                    <p>Discover the magic dimension with variables.</p>
-                    <button class="btn secondary">Open lesson</button>
-                </article>
-
-                <article class="exo">
-                    <div class="tag">Exo 5</div>
-                    <h3>How to operate</h3>
-                    <p>The mathematics are everywhere, let's discover it.</p>
-                    <button class="btn secondary">Open lesson</button>
-                </article>
-
-                <article class="exo">
-                    <div class="tag">Exo 6</div>
-                    <h3>Life is tests</h3>
-                    <p>It's time to learn about conditions.</p>
-                    <button class="btn secondary">Open lesson</button>
-                </article>
 
             </div>
         </section>
     </main>
-</div>
-
-<script>
-    // petit script pour simuler l'entrée (optionnel)
-    document.getElementById('send').addEventListener('click', ()=>{
-        const v = document.getElementById('cmd').value.trim();
-        const game = document.getElementById('game');
-        if(!v) return;
-        game.textContent += "\\n> " + v;
-        if(v.toLowerCase()==='start' || v.toLowerCase()==='start()'){
-            game.textContent += "\\nLe Maître te salue. Ta première épreuve : créer 3 variables.";
-        }
-        document.getElementById('cmd').value='';
-        game.scrollTop = game.scrollHeight;
-    });
-</script>
+    <div class="assistant" id="assistant">
+        <img class= "assistantImg" src="../Pixi/normal.png" alt="Assistant" id="assistantImage" width="50px" height="50px">
+        <div class="bubble" id="assistantBubble"></div>
+    </div>
+    <script src="chap1exo2.js"></script>
 </body>
 </html>
