@@ -4,7 +4,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width,initial-scale=1" />
     <link rel="stylesheet" href="style.css" />
-    <title>Python Practical</title>
+    <title>Python Help - Input</title>
 </head>
 <body>
 <div class="container">
@@ -13,64 +13,67 @@
             <div class="logo">RC</div>
             <div>
                 <div class="title">First steps in the new World</div>
-                <div class="subtitle">Python - Help Menu</div>
+                <div class="subtitle">Python - Help - Input</div>
             </div>
         </div>
         <div class="row">
             <button class="btn" id="DownloadAllPages">Download</button>
         </div>
     </header>
-
-    <main class="grid">
-        <section class="card">
-            <div class="lore-header">
-                <div class="lore-text">
-                    <h1>Chapter 1 - World discover</h1>
-                    <p>The most basics python tools.</p>
-                </div>
-            </div>
-
-            <div class="exo-grid">
-                <article class="exo">
-                    <h3>print</h3>
-                    <p>Builtin function to display objects.</p>
-                    <script>
-                        function loadPage1() {
-                            window.location = 'lessons/chap1exo1.html'
-                        }
-                    </script>
-                    <button class="btn secondary" onclick="loadPage1()">Open help</button>
-                </article>
-
-                <article class="exo">
-                    <h3>input</h3>
-                    <p>Builtin function to ask the player.</p>
-                    <script>
-                        function loadPage1() {
-                            window.location = 'lessons/chap1exo1.html'
-                        }
-                    </script>
-                    <button class="btn secondary" onclick="loadPage1()">Open help</button>
-                </article>
-
-            </div>
-        </section>
-    </main>
+    <h1 class="underline">The "input" Function</h1>
+    <div class="center-left">
+        <div class="column">
+            <p>
+                When you do a program, you may have to ask the user for information (like a searched music for example).
+                <br>
+                <br>
+                Remember that you need to tell the computer to ask the user an information.
+                <br>
+                <br>
+                The magic thing to do that is the input function.
+                <br>
+                To make it simple, when you use your input function, you tell the computer to display the thing between
+                the parenthesis to the user and to send you the information that the user gives you.
+                <br>
+                You can see an example below :
+            </p>
+            <div class="code-block">input("What's your favorite music?")
+>>></div>
+            <p>
+                Here you tell the computer to display the sentence "Ask the user for it favorite music".
+                <br>
+                <br>
+                It's possible to ok other things than sentences like in the example below :
+            </p>
+            <div class="code-block">input(1001)
+>>></div>
+            <p>
+                Here you tell the computer to ask the user "1001".
+                <br>
+                But this thing doesn't have any sens, this is why it's not used.
+                <br>
+                <br>
+                In difference with the print, an input function accepts only one element between the parenthesis.
+            </p>
+            <div class="code-block">input("Tell", "me", "something")
+>>> Error: TypeError: input() takes at most 1 arguments (3 given) on line 1</div>
+            <p>
+                To understand the error, the thing you write between the parenthesis are called arguments.
+                <br>
+                <br>
+                Before ending the lesson, you can use the result given by the user if you want to.
+                <br>
+                As shown in the next exemple, you just have to use the piece of code like if it already was the user response.
+            </p>
+            <div class="code-block">print(input("Tell me your favorite music."))
+>>> Believers from Imagine Dragons</div>
+            <p>
+                <br>
+                <br>
+                This is the end of the lesson, don't forget to ask for help if you don't understand.
+            </p>
+        </div>
+    </div>
 </div>
-
-<script>
-    // petit script pour simuler l'entrée (optionnel)
-    document.getElementById('send').addEventListener('click', ()=>{
-        const v = document.getElementById('cmd').value.trim();
-        const game = document.getElementById('game');
-        if(!v) return;
-        game.textContent += "\\n> " + v;
-        if(v.toLowerCase()==='start' || v.toLowerCase()==='start()'){
-            game.textContent += "\\nLe Maître te salue. Ta première épreuve : créer 3 variables.";
-        }
-        document.getElementById('cmd').value='';
-        game.scrollTop = game.scrollHeight;
-    });
-</script>
 </body>
 </html>

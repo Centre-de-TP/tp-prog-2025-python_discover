@@ -1,0 +1,105 @@
+<!doctype html>
+<html lang="fr">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <link rel="stylesheet" href="style.css" />
+    <link rel="stylesheet" href="console.css" />
+    <link rel="stylesheet" href="../Pixi/assistant.css">
+    <link rel="stylesheet" href="longbody.css">
+
+    <script src="https://cdn.jsdelivr.net/npm/skulpt@1.2.0/dist/skulpt.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/skulpt@1.2.0/dist/skulpt-stdlib.js"></script>
+
+    <title>Chap1 - Exo2</title>
+</head>
+<body>
+    <header class="header">
+        <div class="brand">
+            <div class="logo">RC</div>
+            <div>
+                <div class="title">First steps in the new World</div>
+                <div class="subtitle">Python - Chapter1 - Exo2</div>
+            </div>
+        </div>
+    </header>
+
+    <main class="grid">
+        <section class="card">
+            <div class="lore-header">
+                <div class="lore-text">
+                    <h1>Chapter 1 - World discover</h1>
+                    <p>The second step is to interact with a user.</p>
+                </div>
+            </div>
+            <p>
+                <br>
+                You just woke up, but you need to remember who you are.
+                <br>
+                Write a program which asks the firstname of the user and then, his lastname.
+            </p>
+
+            <div class="code-challenge" id="codeChallenge">
+                <textarea id="codeInput">print("Hello")</textarea>
+                <div class="row">
+                    <button id="runCode" onclick="runPythonCode()">Execute</button>
+                    <script>
+                        function loadPrintHelp() {
+                            window.open('helpFiles/input.html', '_blank')
+                        }
+                    </script>
+                    <button class="btn" id="HelpGetPrint" onclick="loadPrintHelp()">Help</button>
+                </div>
+                <div class="console" id="consoleOutput"></div>
+                <div id="feedback"></div>
+            </div>
+
+            <div class="c hide" id="secondPart">
+                <p>
+                    <br>
+                    Let's try to combine the print function you learned earlier and the input you just learned.
+                    <br>
+                    Write a program which asks the firstname of the user and then, his lastname.
+                    <br>
+                    The program should print the name of the user.
+                </p>
+
+                <div class="code-challenge" id="codeChallenge2">
+                    <textarea id="codeInput2">print("Hello")</textarea>
+                    <div class="row">
+                        <button id="runCode2" onclick="runPythonCode2()">Execute</button>
+                        <script>
+                            function loadPrintHelp() {
+                                window.open('helpFiles/input.html', '_blank')
+                            }
+                        </script>
+                        <button class="btn" id="HelpGetPrint2" onclick="loadPrintHelp()">Help</button>
+                    </div>
+                    <div class="console" id="consoleOutput2"></div>
+                    <div id="feedback2"></div>
+                </div>
+            </div>
+
+            <div class="hide" id="thirdPart">
+                <p>Isn't it the time to go try something harder ?.</p>
+                <script>
+                    function loadHome() {
+                        window.location = '../index.html';
+                    }
+                </script>
+                <div id="backButtonHidden">
+                    <button class="btn" id="getBack" onclick="loadHome()">🚪 Home</button>
+                </div>
+            </div>
+        </section>
+    </main>
+    <div class="assistant" id="assistant">
+        <img class= "assistantImg" src="../Pixi/normal.png" alt="Assistant" id="assistantImage" width="50px" height="50px">
+        <div class="bubble" id="assistantBubble"></div>
+    </div>
+
+
+
+    <script src="chap1exo2.js"></script>
+</body>
+</html>

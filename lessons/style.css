@@ -202,3 +202,7 @@ pre.code{
 /* Utility */
 .row{display:flex;gap:12px;align-items:center}
 .center{display:grid;place-items:center}
+/* Classe utilitaire pour cacher un élément */
+.hide {
+    display: none !important;
+}

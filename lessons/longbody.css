@@ -1,0 +1,12 @@
+body{
+    margin:0;
+    background: radial-gradient(1200px 4000px at 10% 10%, rgba(124,108,255,0.08), transparent),
+    radial-gradient(900px 400px at 90% 90%, rgba(0,194,168,0.03), transparent),
+    var(--bg);
+    color: #e6eef8;
+    font-family: var(--ff-sans);
+    -webkit-font-smoothing:antialiased;
+    -moz-osx-font-smoothing:grayscale;
+    line-height:1.5;
+    padding:32px;
+}
