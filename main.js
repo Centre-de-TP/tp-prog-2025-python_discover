@@ -91,9 +91,16 @@ function CheckJwt(){
     }
 }
 
+function checkStatus(progress){
+    if (progress.status <= 1) {
+        window.location = "startingPage.html"
+    }
+}
+
 function main() {
     const progress = CheckJwt();
-    console.log(progress)
+    console.log(progress);
+    checkStatus(progress);
 }
 
 main()
