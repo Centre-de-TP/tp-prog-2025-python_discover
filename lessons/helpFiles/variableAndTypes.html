@@ -1,0 +1,127 @@
+<!doctype html>
+<html lang="fr">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <link rel="stylesheet" href="style.css" />
+    <title>Python Help - Input</title>
+</head>
+<body>
+<div class="container">
+    <header class="header">
+        <div class="brand">
+            <div class="logo">RC</div>
+            <div>
+                <div class="title">First steps in the new World</div>
+                <div class="subtitle">Python - Help - Input</div>
+            </div>
+        </div>
+        <div class="row">
+            <button class="btn" id="DownloadAllPages">Download</button>
+        </div>
+    </header>
+    <h1 class="underline">The "Variables"</h1>
+    <div class="center-left">
+        <div class="column">
+            <p>
+                Variables are a way to keep thing in memory for a program.
+                <br>
+                Imagine a simple program where you ask the user which is his favourite music so you can launch it for
+                him.
+                <br>
+                Then a possible way of using variables could be to store the user response into one variable and once
+                you need to launch the music, you take out the variable to search for the correct music on internet.
+                <br>
+                <br>
+                A variable can be seen as a box where you can put every kind of things and just re-use these things
+                when you need to.
+                <br>
+                To find these boxes in the big box storage which is your computer, you need to put a tag on the box.
+                <br>
+                It's called the variable name.
+                <br>
+                <br>
+                You can see an example below :
+            </p>
+            <div class="code-block">favouriteMusic = input("What's your favorite music?")
+print(favouriteMusic)
+>>> Believers from Imagine Dragons</div>
+            <p>
+                I hope you remember the input function we saw earlier.
+                <br>
+                Now we added a variable to store the user response.
+                <br>
+                Then the variable can be re-used with the print function so you can display the result.
+                <br>
+                <br>
+                This example showed us the way of storing a user input but you can also store objects in a variable.
+                <br>
+                Let's say that we want to store the artist name directly into the code without asking the user :
+            </p>
+            <div class="code-block">favouriteAuthor = "Imagine Dragons"
+print(favouriteAuthor)
+>>> Imagine Dragons</div>
+            <p>
+                To go a bit further with variables, it's possible to variable, which store copies of other variables.
+            </p>
+            <div class="code-block">favouriteAuthor = "Imagine Dragons"
+copy = favouriteAuthor
+print(favouriteAuthor)
+print(copy)
+>>> Imagine Dragons
+Imagine Dragons</div>
+            <p>
+                As said previously, a variable can store any kind of object in python.
+                <br>
+                We saw how to store sentences but let's see if I want to store a number :
+            </p>
+            <div class="code-block">famousNumber = 42
+print("The answer of life is ", famousNumber)
+>>> The answer of life is 42</div>
+            <p>
+                <br>
+                <br>
+                This is the end of the lesson, don't forget to ask for help if you don't understand.
+            </p>
+        </div>
+    </div>
+    <h1 class="underline">The "Comments"</h1>
+    <div class="center-left">
+        <div class="column">
+            <p>
+                Another useful thing to structure code is the comments.
+                <br>
+                They are represented by the symbole "#" and the purpose of the comments are just to explain the user
+                what is happening.
+            </p>
+            <div class="code-block">#This line isn't useful at all
+famousNumber = 42
+print("The answer of life is ", famousNumber)
+>>> The answer of life is 42</div>
+            <p>
+                As you could see previously, the comment didn't change the code behaviour at all.
+            </p>
+        </div>
+    </div>
+    <h1 class="underline">The "Types"</h1>
+    <div class="center-left">
+        <div class="column">
+            <p>
+                Let's now introduce the object type.
+                <br>
+                In python, and in programmation in general we often manipulate object.
+                <br>
+                But each object has his own type, and you can have nested types in some programming languages.
+                <br>
+                <br>
+                For example, since the beginning of the tutorial you are using sentences which in programming are
+                called "string".
+                <br>
+                A lot of other types exists but for now let's concentrate on the principals ones.
+                <br>
+            </p>
+        </div>
+    </div>
+</div>
+</body>
+</html>
