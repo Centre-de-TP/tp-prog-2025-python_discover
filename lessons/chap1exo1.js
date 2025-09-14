@@ -1,4 +1,5 @@
 "use strict";
+import {UpdateSuccess} from "./token.js";
 
 // Fonction de lecture des fichiers builtins de Skulpt
 function builtinRead(x) {
@@ -48,6 +49,7 @@ function playAssistantLines() {
             }, time);
         }
         else {
+            UpdateSuccess(2);
             challenge.classList.remove("hidden");
         }
     }
