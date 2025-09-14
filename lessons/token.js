@@ -61,7 +61,7 @@ export function UpdateSuccess(i){
         const start = {
             timestamp: Date.now(),
             lostDate: exp,
-            status: i,
+            status: i > 0 ? i : 1,
         }
         const token = encode(start);
         register("progressData", token);
@@ -86,5 +86,76 @@ export function UpdateSuccess(i){
         const token = encode(progress2);
         register("progressData", token);
         return progress2;
+    }
+}
+
+export function ChangeName(name){
+    let progress = null
+    let jwt = extractor("progressData");
+    if (jwt != null) {
+        try {
+            progress = decode(jwt);
+        }
+        catch (error) {
+            progress = null;
+            remover("progressData");
+            jwt = null;
+        }
+    }
+    if (progress == null) {
+        const now = Math.floor(Date.now() / 1000);
+        const exp = now + 10 * 24 * 60 * 60;
+        const start = {
+            timestamp: Date.now(),
+            lostDate: exp,
+            status: 1,
+            username: name
+        }
+        const token = encode(start);
+        register("progressData", token);
+        return start;
+    }
+    else {
+        if (progress.lostDate < Math.floor(Date.now() / 1000)) {
+            const start = {
+                timestamp: progress.timestamp,
+                lostDate: progress.lostDate,
+                status: progress.status,
+                username: name
+            }
+            const token = encode(start);
+            register("progressData", token);
+            return start;
+        }
+        const progress2 = {
+            timestamp: progress.timestamp,
+            lostDate: progress.lostDate,
+            status: progress.status,
+            username: name
+        }
+        const token = encode(progress2);
+        register("progressData", token);
+        return progress2;
+    }
+}
+
+export function GetInfo(){
+    let progress = null
+    let jwt = extractor("progressData");
+    if (jwt != null) {
+        try {
+            progress = decode(jwt);
+        }
+        catch (error) {
+            progress = null;
+            remover("progressData");
+            jwt = null;
+        }
+    }
+    if (progress == null) {
+        return null;
+    }
+    else {
+        return progress;
     }
 }

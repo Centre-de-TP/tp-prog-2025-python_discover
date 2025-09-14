@@ -1,4 +1,4 @@
-import {UpdateSuccess} from "./token.js";
+import {ChangeName, GetInfo, UpdateSuccess} from "./token.js";
 
 function playAssistantLines(lines) {
     const bubble = document.getElementById("assistantBubble");
@@ -58,20 +58,31 @@ function runPythonCode(codeInputId="codeInput", outputId="consoleOutput", feedba
         return Sk.importMainWithBody("<stdin>", false, code, true);
     }).then(
         function(mod) {
-            // Vérifie si la sortie est "open" pour ton exo
-            if (code.includes("input(") && code.includes("lastname") && code.includes("firstname")) {
-                feedback.textContent = "✅ Success! You asked everything.";
-                secondText()
-                //TODO launch second text
-            }
-            else if (!code.includes("input")) {
-                feedback.textContent = "🤔 You are not asking anything.";
-            }
-            else if (!code.includes("lastname") || !code.includes("firstname")) {
-                feedback.textContent = "🤔 You are missing the firstname or the lastname.";
+            // .$d est un dict Python (Sk.builtin.dict)
+            const namePy =  mod.$d.username;
+            if (namePy === undefined) {
+                feedback.textContent = "🤔 You are missing the username variable.";
             }
             else {
-                feedback.textContent = "❌ The code wasn't correct. Let's try again!";
+                const name = namePy.v;
+                ChangeName(name);
+
+                if (code.includes("input") && code.includes("Username") && outputEl.textContent.includes(name)) {
+                    feedback.textContent = "✅ Success! You did everything correctly.";
+                    secondText()
+                }
+                else if (!code.includes("input(") && !code.includes("input (")) {
+                    feedback.textContent = "🤔 You are not asking anything.";
+                }
+                else if (!code.includes("Username")) {
+                    feedback.textContent = "🤔 You are missing the \"Username\" in the input.";
+                }
+                else if (!code.includes("print(") && !code.includes("print (")) {
+                    feedback.textContent = "🤔 You are not displaying anything.";
+                }
+                else {
+                    feedback.textContent = "❌ The code wasn't correct. Let's try again!";
+                }
             }
         },
         function(err) {
@@ -111,21 +122,25 @@ function runPythonCode2(codeInputId="codeInput2", outputId="consoleOutput2", fee
     }).then(
         function(mod) {
             // Vérifie si la sortie est "open" pour ton exo
-            if (code.includes("lastname") && code.includes("firstname") && code.includes("print(input(")) {
-                feedback.textContent = "✅ Success! You asked everything.";
-                thirdText();
+            if (code.includes("int(a)") && code.includes("print") && code.includes("a =")
+                && code.includes("b =") && outputEl.textContent.includes("<class 'int'>")) {
+                feedback.textContent = "✅ Success! You did everything correctly.";
+                thirdText()
             }
-            else if (!code.includes("input")) {
-                feedback.textContent = "🤔 You are not asking anything.";
+            else if (!code.includes("int(a)")) {
+                feedback.textContent = "🤔 Did you forgot your cast ? Try to use the help button.";
             }
             else if (!code.includes("print")) {
                 feedback.textContent = "🤔 You are not displaying anything.";
             }
-            else if (!code.includes("print(input(")) {
-                feedback.textContent = "🤔 The print and input aren't use correctly.";
+            else if (!code.includes("a =")) {
+                feedback.textContent = "🤔 The variable \"a\" hasn't been defined yet.";
             }
-            else if (!code.includes("lastname") || !code.includes("firstname")) {
-                feedback.textContent = "🤔 You are missing the firstname or the lastname.";
+            else if (!code.includes("b =")) {
+                feedback.textContent = "🤔 The variable \"b\" hasn't been defined yet.";
+            }
+            else if (!outputEl.textContent.includes("<class 'int'>")) {
+                feedback.textContent = "🤔 The result class should look like : <class 'int'>";
             }
             else {
                 feedback.textContent = "❌ The code wasn't correct. Let's try again!";
@@ -151,13 +166,13 @@ function unhideThirdPart() {
 
 function main() {
     const lines = [
-        [2000, "Oh hello there", "../Pixi/normal.png"],
-        [2500, "At least you haven't quit yet.", "../Pixi/happy.png"],
-        [1500, "But...", "../Pixi/normal.png"],
-        [2000, "I just remembered something..", "../Pixi/happy.png"],
-        [3000, "I don't think I really know you", "../Pixi/sad.png"],
-        [3000, "Who are you again ?", "../Pixi/sad.png"],
-        [10, "", "../Pixi/normal.png"]
+        [2000, "Nice to see you again today !", "../Pixi/happy.png"],
+        [4500, "I remember that you told me your name in the last lesson..", "../Pixi/sad.png"],
+        [3000, "But...", "../Pixi/sad.png"],
+        [3000, "I think forgot again.", "../Pixi/sad.png"],
+        [4000, "Maybe because we haven't saw a memory system until now.", "../Pixi/normal.png"],
+        [4000, "So, now that you are fully awake, let's discover that !!", "../Pixi/happy.png"],
+        [4000, "Use the concept of variables to store the user input.", "../Pixi/normal.png"]
     ];
     playAssistantLines(lines);
 
@@ -174,21 +189,21 @@ function main() {
 
 function secondText() {
     const lines = [
-        [3000, "Now I remember.", "../Pixi/happy.png"],
-        [4000, "I hope I won't forget your name know that you told me.", "../Pixi/angry.png"],
-        [3000, "But let's go further in this mission.", "../Pixi/normal.png"],
-        [3000, "I'm not sure your ears work properly.", "../Pixi/happy.png"],
-        [3000, "Let's say your name again and hear it.", "../Pixi/happy.png"],
-        [2000, "Who are you again ?", "../Pixi/normal.png"]
+        [3000, "Thanks, now I will always remember you !", "../Pixi/happy.png"],
+        [4000, "But I'm thinking about one thing again.", "../Pixi/normal.png"],
+        [4000, "If you have a number in a sentence, ..", "../Pixi/normal.png"],
+        [4000, "Is it possible to still use it as a number ?", "../Pixi/normal.png"],
+        [4000, "Let's see how could you deal with a number inside a sentence !", "../Pixi/happy.png"]
     ];
     playAssistantLines(lines);
     unhideSecondPart();
 }
 
 function thirdText() {
+    const progress = GetInfo();
     const lines = [
-        [3000, "Well done !!", "../Pixi/happy.png"],
-        [3000, "Now it's time to see something even better.", "../Pixi/happy.png"],
+        [3000, "Nice job " + progress["username"], "../Pixi/happy.png"],
+        [3000, "It's then possible to deal with operation.", "../Pixi/happy.png"],
         [3000, "I'll be waiting for you in the next mission.", "../Pixi/normal.png"],
         [3000, "I would be very happy if you come to see me.", "../Pixi/normal.png"],
         [10, "", "../Pixi/normal.png"],
