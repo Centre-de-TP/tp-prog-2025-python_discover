@@ -97,6 +97,11 @@ function checkStatus(progress){
     }
 }
 
+function checkRequiered(needed){
+    progress = CheckJwt();
+    return progress.status >= needed;
+}
+
 function main() {
     const progress = CheckJwt();
     console.log(progress);
