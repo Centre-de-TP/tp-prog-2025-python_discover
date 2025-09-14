@@ -36,34 +36,42 @@
 <div class="eyelid bottom"></div>
 
 <!-- Ton site principal -->
-<div class="container">
-    <header class="header">
-        <div class="brand">
-            <div class="logo">⚡</div>
-            <div>
-                <div class="title">First steps in the new World</div>
-                <div class="subtitle">Python - Chapter1 - Exo1</div>
+<main class="grid">
+    <div class="container">
+        <header class="header">
+            <div class="brand">
+                <div class="logo">⚡</div>
+                <div>
+                    <div class="title">First steps in the new World</div>
+                    <div class="subtitle">Python - Chapter1 - Exo1</div>
+                </div>
             </div>
-        </div>
-    </header>
-    <div class="grid">
-        <div class="card">
-            <div class="lore-header">
-                <div class="lore-text">
-                    <h1>Chapter 1 - World discover</h1>
-                    <p>Now that you have made your first print, the journey can begin.</p>
-                    <script>
-                        function loadHome() {
-                            window.location = '../index.html';
-                        }
-                    </script>
-                    <button class="btn" id="getBack" onclick="loadHome()">🚪 Home</button>
+        </header>
+        <div class="grid">
+            <div class="card">
+                <div class="lore-header">
+                    <div class="lore-text">
+                        <h1>Chapter 1 - World discover</h1>
+                        <p>Now that you have made your first print, the journey can begin.</p>
+                        <script>
+                            function loadHome() {
+                                window.location = '../index.html';
+                            }
+                        </script>
+                        <div class="hidden" id="backButtonHidden">
+                            <button class="btn" id="getBack" onclick="loadHome()">🚪 Home</button>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
     </div>
-</div>
+    <div class="assistant" id="assistant">
+        <img class= "assistantImg" src="../Pixi/normal.png" alt="Assistant" id="assistantImage" width="50px" height="50px">
+        <div class="bubble" id="assistantBubble"></div>
+    </div>
+</main>
 
-<script src="script.js"></script>
+<script src="chap1exo1.js"></script>
 </body>
 </html>

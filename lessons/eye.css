@@ -80,3 +80,4 @@
 .open .eyelid.top { transform: translateY(-100%); }
 .open .eyelid.bottom { transform: translateY(100%); }
 .open .intro-screen { display: none; }
+.hidden { display: none; }

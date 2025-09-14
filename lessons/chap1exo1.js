@@ -8,6 +8,53 @@ function builtinRead(x) {
     return Sk.builtinFiles["files"][x];
 }
 
+function playAssistantLines() {
+    const challenge = document.getElementById("backButtonHidden");
+    const lines = [
+        [2000, "Oh !", "../Pixi/normal.png"],
+        [2000, "Hi again.", "../Pixi/normal.png"],
+        [2000, "You are finally awake !", "../Pixi/happy.png"],
+        [3000, "My name is Pixi, but you can call me ...", "../Pixi/normal.png"],
+        [2000, ".", "../Pixi/fool.png"],
+        [2000, ". .", "../Pixi/fool.png"],
+        [2000, ". . .", "../Pixi/fool.png"],
+        [4000, "Pixi", "../Pixi/happy.png"],
+        [2000, "hm hm ..", "../Pixi/normal.png"],
+        [4000, "So, I'll be your assistant in this new world.", "../Pixi/happy.png"],
+        [5000, "For every action you'll have to write python code in this world remember ?", "../Pixi/happy.png"],
+        [2000, "Good", "../Pixi/normal.png"],
+        [5000, "If you have everything in mind, let's continue the trip. Right ?", "../Pixi/happy.png"],
+        [10, "", "../Pixi/normal.png"],
+    ];
+    const bubble = document.getElementById("assistantBubble");
+    const img = document.getElementById("assistantImage");
+
+    let i = 0;
+
+    function showNextLine() {
+        if (i < lines.length) {
+            const [time, text, image] = lines[i];
+
+            // Met à jour le texte et l'image
+            bubble.textContent = text;
+            bubble.style.display = "block";
+            if (image) img.src = image;
+
+            // Passe à la prochaine phrase après le temps indiqué
+            setTimeout(() => {
+                bubble.style.display = "none";
+                i++;
+                showNextLine();
+            }, time);
+        }
+        else {
+            challenge.classList.remove("hidden");
+        }
+    }
+
+    showNextLine();
+}
+
 async function main() {
     // Texte qui apparaît progressivement
     const introLines = [
@@ -39,7 +86,7 @@ async function main() {
             introText.textContent = introLines[i][1];
             requestAnimationFrame(() => introText.classList.add("show"));
             i++;
-            setTimeout(showNextLine, introLines[i - 1][0]);
+            setTimeout(showNextLine, 500);//introLines[i - 1][0]);
         } else {
             introText.textContent = "";
             challenge.classList.remove("hidden");
@@ -94,6 +141,7 @@ async function main() {
                 } else if (step === 2 && result === "I really want to open them") {
                     feedback.textContent = "✅ Perfect... Your eyes are opening!";
                     document.body.classList.add("open");
+                    playAssistantLines()
                 } else {
                     feedback.textContent =
                         "❌ Not quite right... Try again!";
