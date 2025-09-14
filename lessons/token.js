@@ -74,6 +74,9 @@ export function UpdateSuccess(i){
                 lostDate: progress.lostDate,
                 status: (i > progress.status) ? i : progress.status,
             }
+            if (Object.hasOwn(progress, "username")) {
+                start["username"] = progress["username"];
+            }
             const token = encode(start);
             register("progressData", token);
             return start;
@@ -82,6 +85,9 @@ export function UpdateSuccess(i){
             timestamp: progress.timestamp,
             lostDate: progress.lostDate,
             status: (i > progress.status) ? i : progress.status,
+        }
+        if (Object.hasOwn(progress, "username")) {
+            progress2["username"] = progress["username"];
         }
         const token = encode(progress2);
         register("progressData", token);

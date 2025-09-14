@@ -76,6 +76,9 @@ function CheckJwt(){
                 lostDate: exp,
                 status: 1,
             }
+            if (Object.hasOwn(progress, "username")) {
+                start["username"] = progress["username"];
+            }
             const token = encode(start);
             register("progressData", token);
             return start;
@@ -84,6 +87,9 @@ function CheckJwt(){
             timestamp: Date.now(),
             lostDate: exp,
             status: progress.status,
+        }
+        if (Object.hasOwn(progress, "username")) {
+            progress2["username"] = progress["username"];
         }
         const token = encode(progress2);
         register("progressData", token);
