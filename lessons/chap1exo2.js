@@ -1,3 +1,5 @@
+import {UpdateSuccess} from "./token.js";
+
 function playAssistantLines(lines) {
     const bubble = document.getElementById("assistantBubble");
     const img = document.getElementById("assistantImage");
@@ -141,6 +143,7 @@ function unhideSecondPart() {
 }
 
 function unhideThirdPart() {
+    UpdateSuccess(3);
     const part = document.getElementById('thirdPart');
     part.classList.remove("hide");
 }
@@ -157,6 +160,16 @@ function main() {
         [10, "", "../Pixi/normal.png"]
     ];
     playAssistantLines(lines);
+
+    let exec1 = document.getElementById("runCode");
+    exec1.addEventListener("click", (e) => {
+        runPythonCode();
+    });
+
+    let exec2 = document.getElementById("runCode2");
+    exec2.addEventListener("click", (e) => {
+        runPythonCode2();
+    });
 }
 
 function secondText() {
