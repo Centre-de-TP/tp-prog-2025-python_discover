@@ -108,10 +108,19 @@ function checkRequiered(needed){
     return progress.status >= needed;
 }
 
+function unlockHelp(progress) {
+    if (progress.status >= 4) {
+        const part = document.getElementById('Help');
+        part.classList.remove("hide");
+        console.log(part);
+    }
+}
+
 function main() {
     const progress = CheckJwt();
     console.log(progress);
     checkStatus(progress);
+    unlockHelp(progress);
 }
 
 main()
