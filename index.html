@@ -48,14 +48,33 @@
                     <div class="tag">Exo 2</div>
                     <h3>Talk learning</h3>
                     <p>Ask the user some information.</p>
-                    <button class="btn secondary">Open lesson</button>
+                    <script>
+                        function loadPage2() {
+                            if (checkRequiered(2)) {
+                                window.location = 'lessons/chap1exo2.html'
+                            }
+                            else {
+                                console.log("The level of your lesson's progress is to low.")
+                            }
+                        }
+                    </script>
+                    <button class="btn secondary" onclick="loadPage2()">Open lesson</button>
                 </article>
 
                 <article class="exo">
                     <div class="tag">Exo 3</div>
                     <h3>World if it could be classified</h3>
-                    <p>Discover python's types.</p>
-                    <button class="btn secondary">Open lesson</button>
+                    <p>Discover python's types.</p><script>
+                    function loadPage3() {
+                        if (checkRequiered(3)) {
+                            window.location = 'lessons/chap1exo2.html'
+                        }
+                        else {
+                            console.log("The level of your lesson's progress is to low.")
+                        }
+                    }
+                </script>
+                    <button class="btn secondary" onclick="loadPage3()">Open lesson</button>
                 </article>
 
                 <article class="exo">
@@ -84,19 +103,6 @@
     </main>
 </div>
 
-<script>
-    // petit script pour simuler l'entrée (optionnel)
-    document.getElementById('send').addEventListener('click', ()=>{
-        const v = document.getElementById('cmd').value.trim();
-        const game = document.getElementById('game');
-        if(!v) return;
-        game.textContent += "\\n> " + v;
-        if(v.toLowerCase()==='start' || v.toLowerCase()==='start()'){
-            game.textContent += "\\nLe Maître te salue. Ta première épreuve : créer 3 variables.";
-        }
-        document.getElementById('cmd').value='';
-        game.scrollTop = game.scrollHeight;
-    });
-</script>
 </body>
+<script src="main.js"></script>
 </html>
