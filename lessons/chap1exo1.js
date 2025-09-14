@@ -86,7 +86,7 @@ async function main() {
             introText.textContent = introLines[i][1];
             requestAnimationFrame(() => introText.classList.add("show"));
             i++;
-            setTimeout(showNextLine, 500);//introLines[i - 1][0]);
+            setTimeout(showNextLine, introLines[i - 1][0]);
         } else {
             introText.textContent = "";
             challenge.classList.remove("hidden");
