@@ -4,6 +4,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width,initial-scale=1" />
     <link rel="stylesheet" href="style.css" />
+    <link rel="stylesheet" href="Pixi/assistant.css" />
     <title>Python Practical</title>
 </head>
 <body>
@@ -17,6 +18,14 @@
             </div>
         </div>
         <div class="row">
+            <div class="a hide" id="Help" >
+                <script>
+                    function loadHelp() {
+                        window.location = 'lessons/helpFiles/index.html'
+                    }
+                </script>
+                <button class="btn"onclick="loadHelp()">Help Menu</button>
+            </div>
             <button class="btn" id="DownloadAllPages">Download</button>
         </div>
     </header>
@@ -94,6 +103,13 @@
             </div>
         </section>
     </main>
+
+    <div id="bot" class="hide">
+        <div class="assistant" id="assistant">
+            <img class= "assistantImg" src="Pixi/normal.png" alt="Assistant" id="assistantImage" width="50px" height="50px">
+            <div class="bubble" id="assistantBubble"></div>
+        </div>
+    </div>
 </div>
 
 </body>
