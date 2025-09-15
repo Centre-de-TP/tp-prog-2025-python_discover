@@ -169,7 +169,7 @@ function main() {
         [2000, "Nice to see you again today !", "../Pixi/happy.png"],
         [4500, "I remember that you told me your name in the last lesson..", "../Pixi/sad.png"],
         [3000, "But...", "../Pixi/sad.png"],
-        [3000, "I think forgot again.", "../Pixi/sad.png"],
+        [3000, "I think I forgot again.", "../Pixi/sad.png"],
         [4000, "Maybe because we haven't saw a memory system until now.", "../Pixi/normal.png"],
         [4000, "So, now that you are fully awake, let's discover that !!", "../Pixi/happy.png"],
         [4000, "Use the concept of variables to store the user input.", "../Pixi/normal.png"]
