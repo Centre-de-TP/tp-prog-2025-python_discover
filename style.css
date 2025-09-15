@@ -202,3 +202,6 @@ pre.code{
 /* Utility */
 .row{display:flex;gap:12px;align-items:center}
 .center{display:grid;place-items:center}
+.hide {
+    display: none !important;
+}

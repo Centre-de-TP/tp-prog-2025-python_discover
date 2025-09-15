@@ -158,7 +158,7 @@ function unhideSecondPart() {
 }
 
 function unhideThirdPart() {
-    UpdateSuccess(3);
+    UpdateSuccess(4);
     const part = document.getElementById('thirdPart');
     part.classList.remove("hide");
 }
