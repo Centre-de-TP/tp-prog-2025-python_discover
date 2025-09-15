@@ -4,7 +4,8 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width,initial-scale=1" />
     <link rel="stylesheet" href="style.css" />
-    <title>Python Help - Print</title>
+    <link rel="stylesheet" href="../table.css" />
+    <title>Python Help - Operation</title>
 </head>
 <body>
 <div class="container">
@@ -13,58 +14,202 @@
             <div class="logo">RC</div>
             <div>
                 <div class="title">First steps in the new World</div>
-                <div class="subtitle">Python - Help - Print</div>
+                <div class="subtitle">Python - Help - Operation</div>
             </div>
         </div>
         <div class="row">
             <button class="btn" id="DownloadAllPages">Download</button>
         </div>
     </header>
-    <h1 class="underline">The "print" Function</h1>
+    <h1 class="underline">The "Operations" in python</h1>
     <div class="center-left">
         <div class="column">
             <p>
-                In programming, it will be very useful for you to display text or
-                elements on the computer.
+                Here is the time when Mathematics enter the programming language.
                 <br>
                 <br>
-                Each line of code is an order that you give to the computer.
+                In python, there is a lot of operation which exists and allow the user to do a lot of things.
                 <br>
-                So in order to display something, you will have to write a code line which tell the computer to
-                display the desired element.
-                <br>
-                <br>
-                The magic thing to do that is the print.
-                <br>
-                But basically when you write your print, you tell the computer to display the thing between the
-                parenthesis.
-                <br>
-                You can see an example below :
+                First, you should be familiar with the integer operations.
             </p>
-            <div class="code-block">print("Hello World")
->>> Hello World</div>
+            <div class="table-container">
+                <table class="table">
+                    <thead>
+                    <tr>
+                        <th>Name</th>
+                        <th>Operator Symbol</th>
+                        <th>Example</th>
+                        <th>Result</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    <tr>
+                        <td>Addition</td>
+                        <td>+</td>
+                        <td>6 + 2</td>
+                        <td>8</td>
+                    </tr>
+                    <tr>
+                        <td>Subtraction</td>
+                        <td>-</td>
+                        <td>6 - 2</td>
+                        <td>4</td>
+                    </tr>
+                    <tr>
+                        <td>Product</td>
+                        <td>*</td>
+                        <td>6 * 2</td>
+                        <td>12</td>
+                    </tr>
+                    <tr>
+                        <td>Division</td>
+                        <td>/</td>
+                        <td>6 / 2</td>
+                        <td>3</td>
+                    </tr>
+                    </tbody>
+                </table>
+            </div>
             <p>
-                Here you tell the computer to display the sentence "Hello World".
+                But now that you have seen the types, let's introduce some more complexe operations.
                 <br>
+                First, the division may give you a floating number even if it's applied between two integers.
                 <br>
-                It's possible to write other things than sentences like in the example below :
+                So in programming we designed other operations to prevent from that.
             </p>
-            <div class="code-block">print(1001)
->>> 1001</div>
+            <div class="code-block">print(7 / 2)
+>>> 3.5</div>
+            <div class="table-container">
+                <table class="table">
+                    <thead>
+                    <tr>
+                        <th>Name</th>
+                        <th>Operator Symbol</th>
+                        <th>Example</th>
+                        <th>Result</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    <tr>
+                        <td>Division</td>
+                        <td>/</td>
+                        <td>7 / 2</td>
+                        <td>3.5</td>
+                    </tr>
+                    <tr>
+                        <td>Integer Division</td>
+                        <td>//</td>
+                        <td>7 // 2</td>
+                        <td>3</td>
+                    </tr>
+                    <tr>
+                    </tbody>
+                </table>
+            </div>
             <p>
-                Here you tell the computer to display the number 1001.
+                To understand properly the integer division, you may have seen earlier in school when you where
+                learning about the division, what is the rest in a division.
+                <br>
+                Until now, you always put the rest after the "," in your result.
+                <br>
+                But sometimes you may don't want the rest of the division, then you keep only the integer part of the
+                result, the one before the ",".
                 <br>
                 <br>
-                To go further with the print, it's possible to let the print create sentences with words you give.
+                Also, in order to complete some operation more quickly, you will find more complexe operations.
             </p>
-            <div class="code-block">print("I'm", "a", "sentence")
->>> I'm a sentence</div>
+            <div class="table-container">
+                <table class="table">
+                    <thead>
+                    <tr>
+                        <th>Name</th>
+                        <th>Operator Symbol</th>
+                        <th>Example</th>
+                        <th>Result</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    <tr>
+                        <td>Power</td>
+                        <td>**</td>
+                        <td>7 ** 2</td>
+                        <td>49</td>
+                    </tr>
+                    <tr>
+                        <td>Modulo</td>
+                        <td>%</td>
+                        <td>7 % 2</td>
+                        <td>1</td>
+                    </tr>
+
+                    </tbody>
+                </table>
+            </div>
             <p>
-                Here you tell the computer to display the sentence "I'm a sentence" after building it.
+                Here you can see a really complexe operation called the "modulo".
+                <br>
+                The concept of this operation is similar to the concept of integer division.
+                <br>
+                When, in the integer division you keep the integer part of a result, in the opposite, when you use the
+                modulo you keep the left part of the integer division.
                 <br>
                 <br>
-                This is the end of the lesson, don't forget to ask for help if you don't understand.
+                To re-explain the previous example, when we decompose the operation "7 % 2", it gives us "(2 * 3 + 1)
+                % 2".
+                <br>
+                This is also the same as keeping every module of 2 in the parenthesis out and leaving the rest.
+                <br>
+                It then gives us "1" left and "2 * 3 / 2" which is an integer.
+                <br>
+                So the result is 1.
+                <br>
+                <br>
+                But the operation works with most of the type system :
             </p>
+            <div class="table-container">
+                <table class="table">
+                    <thead>
+                    <tr>
+                        <th>Name</th>
+                        <th>Operator Symbol</th>
+                        <th>Example</th>
+                        <th>Result</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    <tr>
+                        <td>Addition</td>
+                        <td>+</td>
+                        <td>6.5 + 7.2</td>
+                        <td>13.7</td>
+                    </tr>
+                    <tr>
+                        <td>Concatenation</td>
+                        <td>+</td>
+                        <td>"Hello " + "World"</td>
+                        <td>"Hello World"</td>
+                    </tr>
+                    <tr>
+                        <td>Product</td>
+                        <td>*</td>
+                        <td>6.5 * 2.5</td>
+                        <td>16.25</td>
+                    </tr>
+                    <tr>
+                        <td>Product</td>
+                        <td>*</td>
+                        <td>"me & " * 4</td>
+                        <td>"me & me & me & me & "</td>
+                    </tr>
+                    <tr>
+                        <td>Substraction</td>
+                        <td>-</td>
+                        <td>6.5 - 2.5</td>
+                        <td>4.0</td>
+                    </tr>
+                    </tbody>
+                </table>
+            </div>
         </div>
     </div>
 </div>
