@@ -11,7 +11,7 @@
     <script src="https://cdn.jsdelivr.net/npm/skulpt@1.2.0/dist/skulpt.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/skulpt@1.2.0/dist/skulpt-stdlib.js"></script>
 
-    <title>Chap1 - Exo3</title>
+    <title>Chap1 - Exo4</title>
 </head>
 <body>
     <header class="header">
@@ -19,7 +19,7 @@
             <div class="logo">RC</div>
             <div>
                 <div class="title">First steps in the new World</div>
-                <div class="subtitle">Python - Chapter1 - Exo3</div>
+                <div class="subtitle">Python - Chapter1 - Exo4</div>
             </div>
         </div>
     </header>
@@ -29,30 +29,41 @@
             <div class="lore-header">
                 <div class="lore-text">
                     <h1>Chapter 1 - World discover</h1>
-                    <p>This step introduce the storage and structure system of a code.</p>
+                    <p>In this lesson you will enter the world of operations between objects.</p>
                 </div>
             </div>
             <p>
+                Let's introduce the concept of operation using objects or variables.
                 <br>
-                We will discover the concept of variables.
                 <br>
-                The goal here is to write a program which store a user input into a variable.
+                We will proceed in three steps.
                 <br>
-                To do this, create a variable with the tag "username" and ask the user for his "Username" he wants.
+                First ask the user how much penny he has and store it in the variable named "penny".
                 <br>
-                Please, be careful to enter the correct strings in the correct spaces.
+                The type of the variable must be an integer.
+                <br>
+                <br>
+                Then, the second step consist in asking the user how much dollar he has.
+                <br>
+                The result should be an integer and stored in the variable named "dollar".
+                <br>
+                <br>
+                The final step is to display to the user how much money he has.
+                <br>
+                Remember that a dollar has the symbol $ and is the value of a hundred penny which symbole is ¢.
             </p>
 
             <div class="code-challenge" id="codeChallenge">
-                <textarea id="codeInput">print("Hello")</textarea>
+                <textarea id="codeInput">penny = 0
+dollar = 0</textarea>
                 <div class="row">
                     <button id="runCode">Execute</button>
                     <script>
-                        function loadPrintHelp3() {
-                            window.open('helpFiles/variableAndTypes.html', '_blank')
+                        function loadPrintHelp5() {
+                            window.open('helpFiles/operation.html', '_blank')
                         }
                     </script>
-                    <button class="btn" id="HelpGetVar" onclick="loadPrintHelp3()">Help</button>
+                    <button class="btn" id="HelpGetVar" onclick="loadPrintHelp5()">Help</button>
                 </div>
                 <div class="console" id="consoleOutput"></div>
                 <div id="feedback"></div>
@@ -61,29 +72,26 @@
             <div class="c hide" id="secondPart">
                 <p>
                     <br>
-                    Let's now try to use the cast methods to create a number from a string.
+                    Let's say that for each letter of the alphabet, there is already a variable which contain a string
+                    with the corresponding letter in it.
                     <br>
-                    Write a program which asks the firstname of the user and then, his lastname.
+                    The goal is to create a code which combine all these letters to creat the world "river" and display
+                    it.
                     <br>
-                    The program should print the name of the user.
+                    Now it's your turn to build something interesting.
                 </p>
 
                 <div class="code-challenge" id="codeChallenge2">
-                    <textarea id="codeInput2"># Replace the following comments to complete the code :
-
-# Create a variable a which is a string representing a number.
-
-# Using the casting methods, create a variable b which is the copy of the integer value represented in a.
-
-print(type(b))</textarea>
+                    <textarea id="codeInput2">print(a)
+print(b)</textarea>
                     <div class="row">
                         <button id="runCode2">Execute</button>
                         <script>
                             function loadPrintHelp4() {
-                                window.open('helpFiles/Casting.html', '_blank')
+                                window.open('helpFiles/operation.html', '_blank')
                             }
                         </script>
-                        <button class="btn" id="HelpGetPrint2" onclick="loadPrintHelp4()">Help</button>
+                        <button class="btn" id="HelpGetPrint2" onclick="loadPrintHelp5()">Help</button>
                     </div>
                     <div class="console" id="consoleOutput2"></div>
                     <div id="feedback2"></div>
@@ -110,6 +118,6 @@ print(type(b))</textarea>
 
 
 
-    <script type="module" src="chap1exo3.js"></script>
+    <script type="module" src="chap1exo4.js"></script>
 </body>
 </html>

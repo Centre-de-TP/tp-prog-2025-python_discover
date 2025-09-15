@@ -58,27 +58,28 @@ function runPythonCode(codeInputId="codeInput", outputId="consoleOutput", feedba
         return Sk.importMainWithBody("<stdin>", false, code, true);
     }).then(
         function(mod) {
-            // .$d est un dict Python (Sk.builtin.dict)
-            const namePy =  mod.$d.username;
-            if (namePy === undefined) {
-                feedback.textContent = "🤔 You are missing the username variable.";
+            const penny =  mod.$d.penny;
+            const dollar =  mod.$d.dollar;
+
+            if (typeof penny.v === "undefined" || typeof dollar === "undefined") {
+                feedback.textContent = "🤔 You are missing a variable.";
+            }
+            else if (typeof penny.v !== "number" || typeof dollar.v !== "number") {
+                feedback.textContent = "🤔 Your variable doesn't have the right type.";
             }
             else {
-                const name = namePy.v;
-                ChangeName(name);
-
-                if (code.includes("input") && code.includes("Username") && outputEl.textContent.includes(name)) {
-                    feedback.textContent = "✅ Success! You did everything correctly.";
-                    secondText()
+                if (!code.includes("print(") && !code.includes("print (")) {
+                    feedback.textContent = "🤔 You are not displaying anything.";
+                }
+                else if (!outputEl.textContent.includes(dollar.v + penny.v / 100)) {
+                    feedback.textContent = "🤔 There is an error in the result.";
                 }
                 else if (!code.includes("input(") && !code.includes("input (")) {
-                    feedback.textContent = "🤔 You are not asking anything.";
+                    feedback.textContent = "🤔 You are missing the input.";
                 }
-                else if (!code.includes("Username")) {
-                    feedback.textContent = "🤔 You are missing the \"Username\" in the input.";
-                }
-                else if (!code.includes("print(") && !code.includes("print (")) {
-                    feedback.textContent = "🤔 You are not displaying anything.";
+                else if (outputEl.textContent.includes(dollar.v + penny.v / 100)) {
+                    feedback.textContent = "✅ Success! You did everything correctly.";
+                    secondText()
                 }
                 else {
                     feedback.textContent = "❌ The code wasn't correct. Let's try again!";
@@ -91,8 +92,18 @@ function runPythonCode(codeInputId="codeInput", outputId="consoleOutput", feedba
     );
 }
 
+function generatePythonVars() {
+    let result = "";
+    for (let i = 97; i <= 122; i++) { // 97 = 'a', 122 = 'z'
+        let letter = String.fromCharCode(i);
+        result += `${letter} = "${letter}"\n`;
+    }
+    return result;
+}
+
+
 function runPythonCode2(codeInputId="codeInput2", outputId="consoleOutput2", feedbackId="feedback2") {
-    const code = document.getElementById(codeInputId).value;
+    const code = generatePythonVars() + document.getElementById(codeInputId).value;
     const outputEl = document.getElementById(outputId);
     const feedback = document.getElementById(feedbackId);
 
@@ -122,25 +133,18 @@ function runPythonCode2(codeInputId="codeInput2", outputId="consoleOutput2", fee
     }).then(
         function(mod) {
             // Vérifie si la sortie est "open" pour ton exo
-            if (code.includes("int(a)") && code.includes("print") && code.includes("a =")
-                && code.includes("b =") && outputEl.textContent.includes("<class 'int'>")) {
+            if (code.includes("print") && code.includes("+") && outputEl.textContent.includes("river")) {
                 feedback.textContent = "✅ Success! You did everything correctly.";
                 thirdText()
-            }
-            else if (!code.includes("int(a)")) {
-                feedback.textContent = "🤔 Did you forgot your cast ? Try to use the help button.";
             }
             else if (!code.includes("print")) {
                 feedback.textContent = "🤔 You are not displaying anything.";
             }
-            else if (!code.includes("a =")) {
-                feedback.textContent = "🤔 The variable \"a\" hasn't been defined yet.";
+            else if (!code.includes("+")) {
+                feedback.textContent = "🤔 You can read the help to see how to combine strings.";
             }
-            else if (!code.includes("b =")) {
-                feedback.textContent = "🤔 The variable \"b\" hasn't been defined yet.";
-            }
-            else if (!outputEl.textContent.includes("<class 'int'>")) {
-                feedback.textContent = "🤔 The result class should look like : <class 'int'>";
+            else if (!outputEl.textContent.includes("river")) {
+                feedback.textContent = "🤔 The displayed value is incorrect.";
             }
             else {
                 feedback.textContent = "❌ The code wasn't correct. Let's try again!";
@@ -165,14 +169,19 @@ function unhideThirdPart() {
 
 
 function main() {
+    document.body.style.background = "url(../Background/forset.jpg)";
+    document.body.style.backgroundSize = "cover";
+    document.body.style.backgroundRepeat = "no-repeat";
+    document.body.style.backgroundPosition = "center";
+
     const lines = [
-        [2000, "Nice to see you again today !", "../Pixi/happy.png"],
-        [4500, "I remember that you told me your name in the last lesson..", "../Pixi/sad.png"],
-        [3000, "But...", "../Pixi/sad.png"],
-        [3000, "I think I forgot again.", "../Pixi/sad.png"],
-        [4000, "Maybe because we haven't seen a memory system until now.", "../Pixi/normal.png"],
-        [4000, "So, now that you are fully awake, let's discover that !!", "../Pixi/happy.png"],
-        [4000, "Use the concept of variables to store the user input.", "../Pixi/normal.png"]
+        [3000, "Hi again you, ready for the next part ?", "../Pixi/happy.png"],
+        [3000, "Oh no", "../Pixi/sad.png"],
+        [3000, "I just noticed you may be thirsty already !", "../Pixi/sad.png"],
+        [3000, "Let's see how much money do we have.", "../Pixi/normal.png"],
+        [4500, "Now that you are a master of asking, let's combine everything we learned.", "../Pixi/happy.png"],
+        [3000, "hmm..", "../Pixi/normal.png"],
+        [4000, "I think mathematics will be useful.", "../Pixi/normal.png"]
     ];
     playAssistantLines(lines);
 
@@ -188,18 +197,26 @@ function main() {
 }
 
 function secondText() {
+    document.body.style.background = "url(../Background/forest.png)";
+    document.body.style.backgroundSize = "cover";
+    document.body.style.backgroundRepeat = "no-repeat";
+    document.body.style.backgroundPosition = "center";
     const lines = [
-        [3000, "Thanks, now I will always remember you !", "../Pixi/happy.png"],
-        [4000, "But I'm thinking about one thing again.", "../Pixi/normal.png"],
-        [4000, "If you have a number in a sentence, ..", "../Pixi/normal.png"],
-        [4000, "Is it possible to still use it as a number ?", "../Pixi/normal.png"],
-        [4000, "Let's see how could you deal with a number inside a sentence !", "../Pixi/happy.png"]
+        [5000, "I can't believe you haven't seen", "../Pixi/sad.png"],
+        [5000, "Hahahaha !!", "../Pixi/happy.png"],
+        [4000, "We are in a forest, money won't be useful here", "../Pixi/sad.png"],
+        [4000, "Well, then we only have one choice left", "../Pixi/normal.png"],
+        [4000, "Let's find a river !", "../Pixi/normal.png"]
     ];
     playAssistantLines(lines);
     unhideSecondPart();
 }
 
 function thirdText() {
+    document.body.style.background = "url(../Background/river.png)";
+    document.body.style.backgroundSize = "cover";
+    document.body.style.backgroundRepeat = "no-repeat";
+    document.body.style.backgroundPosition = "center";
     const progress = GetInfo();
     const lines = [
         [3000, "Nice job " + progress["username"], "../Pixi/happy.png"],
