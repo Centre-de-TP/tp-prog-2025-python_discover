@@ -114,6 +114,53 @@ function unlockHelp(progress) {
         part.classList.remove("hide");
         console.log(part);
     }
+    if (progress.status === 4) {
+        const part = document.getElementById('bot');
+        part.classList.remove("hide");
+
+        lines = [
+            [4000, "Nice to see you " + progress.username, "../Pixi/happy.png"],
+            [8000, "You just unlocked the help menu if you need any help in without doing the missions again.", "Pixi/normal.png"]
+        ];
+        playAssistantLines(lines)
+    }
+    if (progress.status > 4) {
+        const part = document.getElementById('bot');
+        part.classList.remove("hide");
+
+        lines = [
+            [6000, "Nice to see you " + progress.username, "Pixi/happy.png"],
+            [10, "", "Pixi/normal.png"]
+        ];
+        playAssistantLines(lines)
+    }
+}
+
+function playAssistantLines(lines) {
+    const bubble = document.getElementById("assistantBubble");
+    const img = document.getElementById("assistantImage");
+
+    let i = 0;
+
+    function showNextLine() {
+        if (i < lines.length) {
+            const [time, text, image] = lines[i];
+
+            // Met à jour le texte et l'image
+            bubble.textContent = text;
+            bubble.style.display = "block";
+            if (image) img.src = image;
+
+            // Passe à la prochaine phrase après le temps indiqué
+            setTimeout(() => {
+                bubble.style.display = "none";
+                i++;
+                showNextLine();
+            }, time);
+        }
+    }
+
+    showNextLine();
 }
 
 function main() {
