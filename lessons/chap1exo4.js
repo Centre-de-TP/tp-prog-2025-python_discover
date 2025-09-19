@@ -517,10 +517,9 @@ function thirdText() {
     document.body.style.backgroundPosition = "center";
     const progress = GetInfo();
     const lines = [
-        [3000, "Nice job " + progress["username"], "../Pixi/happy.png"],
-        [3000, "It's then possible to deal with operation.", "../Pixi/happy.png"],
-        [3000, "I'll be waiting for you in the next mission.", "../Pixi/normal.png"],
-        [3000, "I would be very happy if you come to see me.", "../Pixi/normal.png"],
+        [4000, "Yes I'm not stupid, I know what I just said thanks.", "../Pixi/angry.png"],
+        [4000, "But tell me, we have no map to go search the river.", "../Pixi/fool.png"],
+        [4000, "Let's go now, the sun will soon be sleeping.", "../Pixi/normal.png"],
     ];
     playAssistantLines(lines);
     unhideThirdPart();
