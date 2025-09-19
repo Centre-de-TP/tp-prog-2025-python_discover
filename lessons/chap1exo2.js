@@ -65,7 +65,7 @@ function runPythonCode(codeInputId="codeInput", outputId="consoleOutput", feedba
                 //TODO launch second text
             }
             else if (!code.includes("input")) {
-                feedback.textContent = "🤔 You are not asking anything.";
+                feedback.textContent = "🤔 You are not asking anything, try read the help page to understand how to properly ask something.";
             }
             else if (!code.includes("lastname") || !code.includes("firstname")) {
                 feedback.textContent = "🤔 You are missing the firstname or the lastname.";
