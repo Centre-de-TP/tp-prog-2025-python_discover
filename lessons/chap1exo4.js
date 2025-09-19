@@ -169,7 +169,7 @@ function countOcc(s1, s2) {
 }
 
 function runPythonCode3(codeInputId="codeInput3", outputId="consoleOutput3", feedbackId="feedback3") {
-    const code = generatePythonVars() + document.getElementById(codeInputId).value;
+    const code = document.getElementById(codeInputId).value;
     const outputEl = document.getElementById(outputId);
     const feedback = document.getElementById(feedbackId);
 
@@ -208,8 +208,10 @@ function runPythonCode3(codeInputId="codeInput3", outputId="consoleOutput3", fee
                 ["🪨", "🍄", "🐍", "🌾", "🐺", "🦉", "🌊", "🌲", "🌾", "🦊"],
                 ["🌾", "🌲", "🦉", "🪨", "🌲", "🐗", "🌊", "🐗", "🌲", "🍄"],
             ];
+            console.log(map);
             if (!code.includes("print")) {
                 feedback.textContent = "🤔 You are not displaying anything.";
+                console.log(code)
             }
             else if (countOcc("print", code) > 1) {
                 feedback.textContent = "🤔 You are displaying too many things.";
@@ -218,24 +220,31 @@ function runPythonCode3(codeInputId="codeInput3", outputId="consoleOutput3", fee
                 feedback.textContent = "🤔 The number of detected variable is to high.";
             }
             else {
+                console.log("else")
                 const directions = outputEl.textContent
+                console.log(directions)
                 let word = "";
                 let positionX = 0
                 let positionY = 0
-                for (const c in directions) {
+                for (let i = 0; i < directions.length; i++) {
+                    const c = directions.charAt(i)
+                    word += c
+                    console.log("c: " + c)
+                    console.log("word: " + word)
                     if (word.includes("up")) {
                         word = ""
-                        positionY -= 1
+                        positionX -= 1
                     } else if (word.includes("down")) {
                         word = ""
-                        positionY += 1
+                        positionX += 1
                     } else if (word.includes("left")) {
                         word = ""
-                        positionX -= 1
+                        positionY -= 1
                     } else if (word.includes("right")) {
                         word = ""
-                        positionX += 1
+                        positionY += 1
                     }
+                    console.log(positionX, positionY)
                     if (positionX < 0 || positionY < 0) {
                         const lines = [
                             [3000, "Your are now too far from the river (outside of the map), let's try again",
@@ -243,181 +252,187 @@ function runPythonCode3(codeInputId="codeInput3", outputId="consoleOutput3", fee
                             [10, "", "../Pixi/normal.png"]
                         ];
                         playAssistantLines(lines);
+                        break;
                     }
-                    else {
-                        let lines = []
-                        switch (map[positionX][positionY]) {
-                            case "⬜" :
-                                lines = [
-                                    [3000, "It's not a river but you can still continue",
-                                        "../Pixi/happy.png"],
-                                    [10, "", "../Pixi/normal.png"]
-                                ];
-                                feedback.textContent = "↩️ Let do it again from the start";
-                                playAssistantLines(lines);
-                                break;
-                            case "🚶" :
-                                lines = [
-                                    [3000, "Well done, you manage to return to your starting point",
-                                        "../Pixi/happy.png"],
-                                    [3000, "But for me it doesn't look like a river.",
-                                        "../Pixi/sad.png"],
-                                    [10, "", "../Pixi/normal.png"]
-                                ];
-                                feedback.textContent = "↩️ You are now back to the start";
-                                playAssistantLines(lines);
-                                break;
-                            case "🌊" :
-                                if (!code.includes("*")) {
-                                    lines = [
-                                        [3000, "Oh no...",
-                                            "../Pixi/sad.png"],
-                                        [3000, "You arrived to the river but you forgot something (*).",
-                                            "../Pixi/sad.png"],
-                                        [10, "", "../Pixi/normal.png"]
-                                    ];
-                                    feedback.textContent = "🤔 I think you forgot the lesson on the *.";
-                                    playAssistantLines(lines);
-                                }
-                                else if (!code.includes("+")) {
-                                    lines = [
-                                        [3000, "Oh good you did a good job arriving the river",
-                                            "../Pixi/angry.png"],
-                                        [3000, "You arrived to the river but you forgot something (+).",
-                                            "../Pixi/sad.png"],
-                                        [10, "", "../Pixi/normal.png"]
-                                    ];
-                                    feedback.textContent = "🤔 I think you forgot the lesson on the +.";
-                                    playAssistantLines(lines);
-                                }
-                                else
-                                {
-                                    fourthText()
-                                }
-                                break;
-                            case "🌲" :
-                                lines = [
-                                    [3000, "This is a tree...",
-                                        "../Pixi/angry.png"],
-                                    [3000, "But I don't see a magic door.",
-                                        "../Pixi/sad.png"],
-                                    [10, "", "../Pixi/normal.png"]
-                                ];
-                                feedback.textContent = "↩️ You are now back to the start";
-                                playAssistantLines(lines);
-                                break;
-                            case "🪨" :
-                                lines = [
-                                    [3000, "Oh, I think I see water !!!",
-                                        "../Pixi/happy.png"],
-                                    [3000, "Oh no sorry it was the sun reflect on a rock...",
-                                        "../Pixi/sad.png"],
-                                    [3000, "Don't bring me to this rock again understand.",
-                                        "../Pixi/angry.png"],
-                                    [3000, "I don't eat or drink rocks.",
-                                        "../Pixi/angry.png"],
-                                    [10, "", "../Pixi/normal.png"]
-                                ];
-                                feedback.textContent = "↩️ You are now back to the start";
-                                playAssistantLines(lines);
-                                break;
-                            case "🦊" :
-                                lines = [
-                                    [3000, "I see something moving behind this tree !",
-                                        "../Pixi/happy.png"],
-                                    [4000, "But whatever, it was orange so just probably a fox not water.",
-                                        "../Pixi/sad.png"],
-                                    [10, "", "../Pixi/normal.png"]
-                                ];
-                                playAssistantLines(lines);
-                                break;
-                            case "🐿️" :
-                                lines = [
-                                    [3000, "May be this squirrel could bring us to the water.",
-                                        "../Pixi/normal.png"],
-                                    [4000, "You do whatever you want, but I want stay here until he gets out again.",
-                                        "../Pixi/angry.png"],
-                                    [10, "", "../Pixi/normal.png"]
-                                ];
-                                feedback.textContent = "↩️ You are now back to the start";
-                                playAssistantLines(lines);
-                                break;
-                            case "🐗" :
-                                lines = [
-                                    [3000, "Runnnn !!!!",
-                                        "../Pixi/angry.png"],
-                                    [3000, "It's a wild boar.",
-                                        "../Pixi/angry.png"],
-                                    [10, "", "../Pixi/normal.png"]
-                                ];
-                                feedback.textContent = "↩️ You are now back to the start";
-                                playAssistantLines(lines);
-                                break;
-                            case "🍄" :
-                                lines = [
-                                    [3000, "Oh purple water !!",
-                                        "../Pixi/happy.png"],
-                                    [3000, "Wait, . . .",
-                                        "../Pixi/fool.png"],
-                                    [3000, "Purple !??",
-                                        "../Pixi/fool.png"],
-                                    [3000, "I think it's the mushroom under our feet.",
-                                        "../Pixi/normal.png"],
-                                    [10, "", "../Pixi/normal.png"]
-                                ];
-                                feedback.textContent = "↩️ You are now back to the start";
-                                playAssistantLines(lines);
-                                break;
-                            case "🐍" :
-                                lines = [
-                                    [3000, "A green thing is right ahead of us.",
-                                        "../Pixi/normal.png"],
-                                    [3000, "May be a snake, I'd not go there if I were you.",
-                                        "../Pixi/sad.png"],
-                                    [10, "", "../Pixi/normal.png"]
-                                ];
-                                feedback.textContent = "↩️ You are now back to the start";
-                                playAssistantLines(lines);
-                                break;
-                            case "🌾" :
-                                lines = [
-                                    [3000, "Hmm no, that's corn not water.",
-                                        "../Pixi/angry.png"],
-                                    [10, "", "../Pixi/normal.png"]
-                                ];
-                                feedback.textContent = "↩️ You are now back to the start";
-                                playAssistantLines(lines);
-                                break;
-                            case "🐺" :
-                                lines = [
-                                    [3000, "Hmmm...",
-                                        "../Pixi/normal.png"],
-                                    [3000, "A fox ? No it's darker.",
-                                        "../Pixi/normal.png"],
-                                    [3000, "A dog ? No it's bigger.",
-                                        "../Pixi/normal.png"],
-                                    [3000, "It's a wolf pack !!!",
-                                        "../Pixi/normal.png"],
-                                    [3000, "Run before they sees us !",
-                                        "../Pixi/normal.png"],
-                                    [10, "", "../Pixi/normal.png"]
-                                ];
-                                feedback.textContent = "↩️ You are now back to the start";
-                                playAssistantLines(lines);
-                                break;
-                            case "🦉" :
-                                lines = [
-                                    [3000, "You have went to a place which is to dark for me.",
-                                        "../Pixi/angry.png"],
-                                    [3000, "We can't go further, let's go back.",
-                                        "../Pixi/sad.png"],
-                                    [10, "", "../Pixi/normal.png"]
-                                ];
-                                feedback.textContent = "↩️ You are now back to the start";
-                                playAssistantLines(lines);
-                                break;
+                    else if (map[positionX][positionY] !== "🌊" && map[positionX][positionY] !== "⬜" && map[positionX][positionY] !== "🚶") {
+                        console.log(map[positionX][positionY])
+                        break;
+                    }
+                    console.log(map[positionX][positionY])
+                }
+                let lines = []
+                switch (map[positionX][positionY]) {
+                    case "⬜" :
+                        lines = [
+                            [3000, "It's not a river but you can still continue",
+                                "../Pixi/happy.png"],
+                            [10, "", "../Pixi/normal.png"]
+                        ];
+                        feedback.textContent = "↩️ Let do it again from the start";
+                        playAssistantLines(lines);
+                        break;
+                    case "🚶" :
+                        lines = [
+                            [3000, "Well done, you manage to return to your starting point",
+                                "../Pixi/happy.png"],
+                            [3000, "But for me it doesn't look like a river.",
+                                "../Pixi/sad.png"],
+                            [10, "", "../Pixi/normal.png"]
+                        ];
+                        feedback.textContent = "↩️ You are now back to the start";
+                        playAssistantLines(lines);
+                        break;
+                    case "🌊" :
+                        if (!code.includes("*")) {
+                            lines = [
+                                [3000, "Oh no...",
+                                    "../Pixi/sad.png"],
+                                [3000, "You arrived to the river but you forgot something (*).",
+                                    "../Pixi/sad.png"],
+                                [10, "", "../Pixi/normal.png"]
+                            ];
+                            feedback.textContent = "🤔 I think you forgot the lesson on the *.";
+                            playAssistantLines(lines);
                         }
-                    }
+                        else if (!code.includes("+")) {
+                            lines = [
+                                [3000, "Oh good you did a good job arriving the river",
+                                    "../Pixi/angry.png"],
+                                [3000, "You arrived to the river but you forgot something (+).",
+                                    "../Pixi/sad.png"],
+                                [10, "", "../Pixi/normal.png"]
+                            ];
+                            feedback.textContent = "🤔 I think you forgot the lesson on the +.";
+                            playAssistantLines(lines);
+                        }
+                        else
+                        {
+                            fourthText()
+                        }
+                        break;
+                    case "🌲" :
+                        lines = [
+                            [3000, "This is a tree...",
+                                "../Pixi/angry.png"],
+                            [3000, "But I don't see a magic door.",
+                                "../Pixi/sad.png"],
+                            [10, "", "../Pixi/normal.png"]
+                        ];
+                        feedback.textContent = "↩️ You are now back to the start";
+                        playAssistantLines(lines);
+                        break;
+                    case "🪨" :
+                        lines = [
+                            [3000, "Oh, I think I see water !!!",
+                                "../Pixi/happy.png"],
+                            [3000, "Oh no sorry it was the sun reflect on a rock...",
+                                "../Pixi/sad.png"],
+                            [3000, "Don't bring me to this rock again understand.",
+                                "../Pixi/angry.png"],
+                            [3000, "I don't eat or drink rocks.",
+                                "../Pixi/angry.png"],
+                            [10, "", "../Pixi/normal.png"]
+                        ];
+                        feedback.textContent = "↩️ You are now back to the start";
+                        playAssistantLines(lines);
+                        break;
+                    case "🦊" :
+                        lines = [
+                            [3000, "I see something moving behind this tree !",
+                                "../Pixi/happy.png"],
+                            [4000, "But whatever, it was orange so just probably a fox not water.",
+                                "../Pixi/sad.png"],
+                            [10, "", "../Pixi/normal.png"]
+                        ];
+                        playAssistantLines(lines);
+                        break;
+                    case "🐿️" :
+                        lines = [
+                            [3000, "May be this squirrel could bring us to the water.",
+                                "../Pixi/normal.png"],
+                            [4000, "You do whatever you want, but I want stay here until he gets out again.",
+                                "../Pixi/angry.png"],
+                            [10, "", "../Pixi/normal.png"]
+                        ];
+                        feedback.textContent = "↩️ You are now back to the start";
+                        playAssistantLines(lines);
+                        break;
+                    case "🐗" :
+                        lines = [
+                            [3000, "Runnnn !!!!",
+                                "../Pixi/angry.png"],
+                            [3000, "It's a wild boar.",
+                                "../Pixi/angry.png"],
+                            [10, "", "../Pixi/normal.png"]
+                        ];
+                        feedback.textContent = "↩️ You are now back to the start";
+                        playAssistantLines(lines);
+                        break;
+                    case "🍄" :
+                        lines = [
+                            [3000, "Oh purple water !!",
+                                "../Pixi/happy.png"],
+                            [3000, "Wait, . . .",
+                                "../Pixi/fool.png"],
+                            [3000, "Purple !??",
+                                "../Pixi/fool.png"],
+                            [3000, "I think it's the mushroom under our feet.",
+                                "../Pixi/normal.png"],
+                            [10, "", "../Pixi/normal.png"]
+                        ];
+                        feedback.textContent = "↩️ You are now back to the start";
+                        playAssistantLines(lines);
+                        break;
+                    case "🐍" :
+                        lines = [
+                            [3000, "A green thing is right ahead of us.",
+                                "../Pixi/normal.png"],
+                            [3000, "May be a snake, I'd not go there if I were you.",
+                                "../Pixi/sad.png"],
+                            [10, "", "../Pixi/normal.png"]
+                        ];
+                        feedback.textContent = "↩️ You are now back to the start";
+                        playAssistantLines(lines);
+                        break;
+                    case "🌾" :
+                        lines = [
+                            [3000, "Hmm no, that's corn not water.",
+                                "../Pixi/angry.png"],
+                            [10, "", "../Pixi/normal.png"]
+                        ];
+                        feedback.textContent = "↩️ You are now back to the start";
+                        playAssistantLines(lines);
+                        break;
+                    case "🐺" :
+                        lines = [
+                            [3000, "Hmmm...",
+                                "../Pixi/normal.png"],
+                            [3000, "A fox ? No it's darker.",
+                                "../Pixi/normal.png"],
+                            [3000, "A dog ? No it's bigger.",
+                                "../Pixi/normal.png"],
+                            [3000, "It's a wolf pack !!!",
+                                "../Pixi/normal.png"],
+                            [3000, "Run before they sees us !",
+                                "../Pixi/normal.png"],
+                            [10, "", "../Pixi/normal.png"]
+                        ];
+                        feedback.textContent = "↩️ You are now back to the start";
+                        playAssistantLines(lines);
+                        break;
+                    case "🦉" :
+                        lines = [
+                            [3000, "You have went to a place which is to dark for me.",
+                                "../Pixi/angry.png"],
+                            [3000, "We can't go further, let's go back.",
+                                "../Pixi/sad.png"],
+                            [10, "", "../Pixi/normal.png"]
+                        ];
+                        feedback.textContent = "↩️ You are now back to the start";
+                        playAssistantLines(lines);
+                        break;
+                    default:
+                        console.log(map[positionX][positionY])
                 }
             }
         },
@@ -438,6 +453,8 @@ function unhideThirdPart() {
 }
 
 function unhideFourthPart() {
+    document.body.style.backgroundImage = "";
+    document.body.style.background = "linear-gradient(135deg, #1e1e1e, #111)";
     UpdateSuccess(5);
     const part = document.getElementById('fourthPart');
     part.classList.remove("hide");
@@ -469,6 +486,11 @@ function main() {
     let exec2 = document.getElementById("runCode2");
     exec2.addEventListener("click", (e) => {
         runPythonCode2();
+    });
+
+    let exec3 = document.getElementById("runCode3");
+    exec3.addEventListener("click", (e) => {
+        runPythonCode3();
     });
 }
 
