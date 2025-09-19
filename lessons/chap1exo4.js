@@ -208,10 +208,9 @@ function runPythonCode3(codeInputId="codeInput3", outputId="consoleOutput3", fee
                 ["🪨", "🍄", "🐍", "🌾", "🐺", "🦉", "🌊", "🌲", "🌾", "🦊"],
                 ["🌾", "🌲", "🦉", "🪨", "🌲", "🐗", "🌊", "🐗", "🌲", "🍄"],
             ];
-            console.log(map);
+            //console.log(map);
             if (!code.includes("print")) {
                 feedback.textContent = "🤔 You are not displaying anything.";
-                console.log(code)
             }
             else if (countOcc("print", code) > 1) {
                 feedback.textContent = "🤔 You are displaying too many things.";
@@ -220,17 +219,13 @@ function runPythonCode3(codeInputId="codeInput3", outputId="consoleOutput3", fee
                 feedback.textContent = "🤔 The number of detected variable is to high.";
             }
             else {
-                console.log("else")
                 const directions = outputEl.textContent
-                console.log(directions)
                 let word = "";
                 let positionX = 0
                 let positionY = 0
                 for (let i = 0; i < directions.length; i++) {
                     const c = directions.charAt(i)
                     word += c
-                    console.log("c: " + c)
-                    console.log("word: " + word)
                     if (word.includes("up")) {
                         word = ""
                         positionX -= 1
@@ -244,7 +239,6 @@ function runPythonCode3(codeInputId="codeInput3", outputId="consoleOutput3", fee
                         word = ""
                         positionY += 1
                     }
-                    console.log(positionX, positionY)
                     if (positionX < 0 || positionY < 0) {
                         const lines = [
                             [3000, "Your are now too far from the river (outside of the map), let's try again",
@@ -255,10 +249,8 @@ function runPythonCode3(codeInputId="codeInput3", outputId="consoleOutput3", fee
                         break;
                     }
                     else if (map[positionX][positionY] !== "🌊" && map[positionX][positionY] !== "⬜" && map[positionX][positionY] !== "🚶") {
-                        console.log(map[positionX][positionY])
                         break;
                     }
-                    console.log(map[positionX][positionY])
                 }
                 let lines = []
                 switch (map[positionX][positionY]) {
