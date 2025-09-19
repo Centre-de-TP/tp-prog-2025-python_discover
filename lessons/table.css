@@ -1,0 +1,62 @@
+/* Dark table styling */
+.table {
+    width: 100%;
+    border-collapse: collapse;
+    font-family: var(--ff-sans, sans-serif);
+    font-size: 0.95rem;
+    margin: 1rem 0;
+    background: #1e1e2f; /* darker background */
+    box-shadow: 0 2px 6px rgba(0,0,0,0.6);
+    border: 2px solid #444;
+    border-radius: 8px;
+    overflow: hidden;
+    color: #eee; /* light text for readability */
+}
+
+/* Borders everywhere */
+.table th,
+.table td {
+    border: 1px solid #444;
+}
+
+/* Header row */
+.table thead {
+    background: linear-gradient(90deg, #5f4bff, #7c6cff);
+    color: #fff; /* bright text */
+    text-align: left;
+}
+
+/* Header cells */
+.table th {
+    padding: 12px 16px;
+    font-weight: bold;
+}
+
+/* First column */
+.table td:first-child,
+.table th:first-child {
+    background: #2a2a40; /* darker shade */
+    font-weight: 600;
+    color: #fff;
+}
+
+/* Body cells */
+.table td {
+    padding: 12px 16px;
+    color: #ddd; /* softer white for body text */
+}
+
+/* Alternate row shading */
+.table tbody tr:nth-child(even) {
+    background: #24243a; /* dark gray-blue */
+}
+
+/* Hover effect */
+.table tbody tr:hover {
+    background: #333355; /* highlight on hover */
+}
+
+/* Responsive: scroll if needed */
+.table-container {
+    overflow-x: auto;
+}
