@@ -169,7 +169,9 @@ function runPythonCode2(codeInputId="codeInput2", outputId="consoleOutput2", fee
                     }
                     if (result.includes("clothing_store")) {
                         rest = rest - 500
-                        ChangeData("outfit", 15)
+                        if (accommodation && resto && rest >= 0) {
+                            ChangeData("outfit", 15)
+                        }
                     }
                     if (rest >= money) {
                         feedback.textContent = "🤔 Are you trying to trick us ?";

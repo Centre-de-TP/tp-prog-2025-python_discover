@@ -41,6 +41,27 @@ function decode(token) {
     if (parts.length < 2) throw new Error("Token invalide");
     return base64urlDecode(parts[1]); // On lit le payload
 }
+function GetInfo(){
+    let progress = null
+    let jwt = extractor("progressData");
+    if (jwt != null) {
+        try {
+            progress = decode(jwt);
+        }
+        catch (error) {
+            progress = null;
+            remover("progressData");
+            jwt = null;
+        }
+    }
+    if (progress == null) {
+        return null;
+    }
+    else {
+        return progress;
+    }
+}
+
 
 export function ChangeData(name, value){
     let playerData = null
