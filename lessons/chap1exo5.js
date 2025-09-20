@@ -1,4 +1,5 @@
 import {ChangeName, GetInfo, UpdateSuccess} from "./token.js";
+import {ChangeData, GetPlayerData} from "./playerData";
 
 function playAssistantLines(lines) {
     const bubble = document.getElementById("assistantBubble");
@@ -171,7 +172,7 @@ function runPythonCode2(codeInputId="codeInput2", outputId="consoleOutput2", fee
                     }
                     if (result.includes("clothing_store")) {
                         rest = rest - 500
-                        //TODO : add a bonus in the player data
+                        ChangeData("outfit", 15)
                     }
                     if (rest >= money) {
                         feedback.textContent = "🤔 Are you trying to trick us ?";
