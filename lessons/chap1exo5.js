@@ -1,5 +1,5 @@
 import {ChangeName, GetInfo, UpdateSuccess} from "./token.js";
-import {ChangeData, GetPlayerData} from "./playerData";
+import {ChangeData, GetPlayerData} from "./playerData.js";
 
 function playAssistantLines(lines) {
     const bubble = document.getElementById("assistantBubble");
