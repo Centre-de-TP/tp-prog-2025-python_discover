@@ -112,7 +112,6 @@ function unlockHelp(progress) {
     if (progress.status >= 4) {
         const part = document.getElementById('Help');
         part.classList.remove("hide");
-        console.log(part);
     }
     if (progress.status === 4) {
         const part = document.getElementById('bot');
