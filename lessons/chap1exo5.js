@@ -132,9 +132,6 @@ function runPythonCode2(codeInputId="codeInput2", outputId="consoleOutput2", fee
                 feedback.textContent = "❌ A print was used in the code.";
             }
             else {
-                const variableDeclaration = "expensive_Restaurant = 1000\n" + "common_Restaurant = 50\n"
-                    + "nearby_Store = 20\n" + "expensive_Hotel = 100000\n" + "common_house = 50000\n"
-                    + "expensive_house = 500500\n" + "clothing_store = 500\n" + "money = 500520\n"
                 let result =  mod.$d.result;
                 if (result === undefined) {
                     feedback.textContent = "❌ You are missing the result variable.";
