@@ -219,9 +219,9 @@ function main() {
         [3500, "You managed to survive and we left the forest.", "../Pixi/happy.png"],
         [4500, "In front of you there is the city of Thalewood.", "../Pixi/normal.png"],
         [3000, "But....", "../Pixi/sad.png"],
-        [5000, "The guards don't want to let you enter the city with these cloths.", "../Pixi/angry.png"],
+        [5500, "The guards don't want to let you enter the city with these cloths.", "../Pixi/angry.png"],
         [5000, "There is still this guy who wants to sell you bananas.", "../Pixi/fool.png"],
-        [5000, "He said that if you could afford one banana, he would show you how to enter !", "../Pixi/fool.png"],
+        [7000, "He said that if you could afford one banana, he would show you how to enter !", "../Pixi/fool.png"],
         [1, "", "../Pixi/normal.png"],
     ];
     playAssistantLines(lines);
