@@ -276,6 +276,12 @@ else :
                         <td>condition1 or condition2</td>
                         <td>At least one of the condition need to be True so the result is True.</td>
                     </tr>
+                    <tr>
+                        <td>NOT</td>
+                        <td>not</td>
+                        <td>not condition</td>
+                        <td>The condition needs to be False so the result is True.</td>
+                    </tr>
                     </tbody>
                 </table>
             </div>
@@ -294,7 +300,9 @@ print("The sum is : " + str(sum))
 if (2 * number == sum and 2 * number2 == sum) :
     print("The sum is the double of both numbers !")
 elif (2 * number == sum or 2 * number2 == sum) :
-    print("The sum is the double of one number only")</div>
+    print("The sum is the double of one number only")
+elif (not number == sum) :
+    print("The sum which isn't the double of number, isn't equals to it either.")</div>
             <p>
                 <br>
                 <br>
