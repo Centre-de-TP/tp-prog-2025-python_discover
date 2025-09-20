@@ -68,8 +68,8 @@ function runPythonCode(codeInputId="codeInput", outputId="consoleOutput", feedba
                 const m = money.v;
 
                 if (code.includes("input") && code.includes("print")) {
-                    if (m >= 10 && outputEl.includes("You bought some bananas")
-                        || m < 10 && outputEl.includes("You had not enough money to buy bananas")) {
+                    if (m >= 10 && outputEl.textContent.includes("You bought some bananas")
+                        || m < 10 && outputEl.textContent.includes("You had not enough money to buy bananas")) {
                         feedback.textContent = "✅ Success! You did everything correctly.";
                         secondText()
                     }
