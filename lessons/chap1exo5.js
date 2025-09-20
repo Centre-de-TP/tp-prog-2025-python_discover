@@ -128,7 +128,7 @@ function runPythonCode2(codeInputId="codeInput2", outputId="consoleOutput2", fee
     }).then(
         function(mod) {
             // Vérifie si la sortie est "open" pour ton exo
-            if (!code.includes("print")) {
+            if (code.includes("print")) {
                 feedback.textContent = "❌ A print was used in the code.";
             }
             else {
