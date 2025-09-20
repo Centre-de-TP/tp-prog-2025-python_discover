@@ -7,11 +7,12 @@
     <link rel="stylesheet" href="console.css" />
     <link rel="stylesheet" href="../Pixi/assistant.css">
     <link rel="stylesheet" href="longbody.css">
+    <link rel="stylesheet" href="table.css">
 
     <script src="https://cdn.jsdelivr.net/npm/skulpt@1.2.0/dist/skulpt.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/skulpt@1.2.0/dist/skulpt-stdlib.js"></script>
 
-    <title>Chap1 - Exo4</title>
+    <title>Chap1 - Exo5</title>
 </head>
 <body>
     <header class="header">
@@ -19,7 +20,7 @@
             <div class="logo">RC</div>
             <div>
                 <div class="title">First steps in the new World</div>
-                <div class="subtitle">Python - Chapter1 - Exo4</div>
+                <div class="subtitle">Python - Chapter1 - Exo5</div>
             </div>
         </div>
     </header>
@@ -29,41 +30,41 @@
             <div class="lore-header">
                 <div class="lore-text">
                     <h1>Chapter 1 - World discover</h1>
-                    <p>In this lesson you will enter the world of operations between objects.</p>
+                    <p>It's now time to discover the condition checkers.</p>
                 </div>
             </div>
             <p>
-                Let's introduce the concept of operation using objects or variables.
+                Let's begin with a basic exercice.
+                <br>
+                We have stored in a variable named "price" the price of a banana.
                 <br>
                 <br>
-                We will proceed in three steps.
+                The first task is to ask the user for an amount of money in dollar.
                 <br>
-                First ask the user how much penny he has and store it in the variable named "penny".
-                <br>
-                The type of the variable must be an integer.
+                To make it more easy, you will have to store it in an int form in a variable named "money".
                 <br>
                 <br>
-                Then, the second step consist in asking the user how much dollar he has.
+                Next step is to compare the number with the price of a banana.
                 <br>
-                The result should be an integer and stored in the variable named "dollar".
+                If the user money is enough, display "You bought some bananas".
+                <br>
+                Otherwise, display "You had not enough money to buy bananas".
                 <br>
                 <br>
-                The final step is to display to the user how much money he has.
                 <br>
-                Remember that a dollar has the symbol $ and is the value of a hundred penny which symbole is ¢.
+                Don't forget to check the help if you don't know how to use the conditions.
             </p>
 
             <div class="code-challenge" id="codeChallenge">
-                <textarea id="codeInput">penny = 0
-dollar = 0</textarea>
+                <textarea id="codeInput">print("The banana price is " + str(price) + "৳")</textarea>
                 <div class="row">
                     <button id="runCode">Execute</button>
                     <script>
-                        function loadPrintHelp5() {
-                            window.open('helpFiles/operation.html', '_blank')
+                        function loadPrintHelp6() {
+                            window.open('helpFiles/condition.html', '_blank')
                         }
                     </script>
-                    <button class="btn" id="HelpGetVar" onclick="loadPrintHelp5()">Help</button>
+                    <button class="btn" id="HelpGetVar" onclick="loadPrintHelp6()">Help</button>
                 </div>
                 <div class="console" id="consoleOutput"></div>
                 <div id="feedback"></div>
@@ -72,70 +73,101 @@ dollar = 0</textarea>
             <div class="c hide" id="secondPart">
                 <p>
                     <br>
-                    Let's say that for each letter of the alphabet, there is already a variable which contain a string
-                    with the corresponding letter in it.
                     <br>
-                    The goal is to create a code which combine all these letters to creat the world "river" and display
-                    it.
+                    Now that you have reached the nearest city, it's time to eat and find an accommodation.
                     <br>
-                    Now it's your turn to build something interesting.
+                    Here is a table with the price of the different things you need.
+                    <br>
+                    In this world the money is represented by a gold coin (symbol ৳).
+                </p>
+                <div class="table-container">
+                    <table class="table">
+                        <thead>
+                        <tr>
+                            <th>Name</th>
+                            <th>Price</th>
+                            <th>Variable Name</th>
+                        </tr>
+                        </thead>
+                        <tbody>
+                        <tr>
+                            <td>Expensive Restaurant</td>
+                            <td>1 000৳</td>
+                            <td>expensive_Restaurant</td>
+                        </tr>
+                        <tr>
+                            <td>Common Restaurant</td>
+                            <td>50৳</td>
+                            <td>common_Restaurant</td>
+                        </tr>
+                        <tr>
+                            <td>Nearby Store</td>
+                            <td>20৳</td>
+                            <td>nearby_Store</td>
+                        </tr>
+                        <tr>
+                            <td>Expensive Hotel</td>
+                            <td>100 000৳</td>
+                            <td>expensive_Hotel</td>
+                        </tr>
+                        <tr>
+                            <td>Common House</td>
+                            <td>50 000৳</td>
+                            <td>common_house</td>
+                        </tr>
+                        <tr>
+                            <td>Expensive House</td>
+                            <td>500 500৳</td>
+                            <td>expensive_house</td>
+                        </tr>
+                        <tr>
+                            <td>Change outfit</td>
+                            <td>500৳</td>
+                            <td>clothing_store</td>
+                        </tr>
+                        </tbody>
+                    </table>
+                </div>
+                <p>
+                    You must use the previous variables to decide where to go.
+                    <br>
+                    In this program, you have a variable named "money" already assigned.
+                    <br>
+                    The goal is to use the conditions to check for each need which place you can afford.
+                    <br>
+                    <br>
+                    The answer will be in a text variable named "result".
+                    <br>
+                    For each place you go to, add "I go to the Place_Variable_Name." in the result variable.
+                    <br>
+                    <br>
+                    As long as you don't know how much money you have, creates a good program to check.
+                    <br>
+                    But you need to find at least an accommodation and eat something.
+                    <br>
+                    The clothing store is if you want to change outfit, and you have enough money.
                 </p>
 
                 <div class="code-challenge" id="codeChallenge2">
-                    <textarea id="codeInput2">print(a)
-print(b)</textarea>
+                    <textarea id="codeInput2">#no number displayed are allowed.</textarea>
                     <div class="row">
                         <button id="runCode2">Execute</button>
                         <script>
-                            function loadPrintHelp4() {
-                                window.open('helpFiles/operation.html', '_blank')
+                            function loadPrintHelp6() {
+                                window.open('helpFiles/condition.html', '_blank')
                             }
                         </script>
-                        <button class="btn" id="HelpGetPrint2" onclick="loadPrintHelp5()">Help</button>
+                        <button class="btn" id="HelpGetPrint2" onclick="loadPrintHelp6()">Help</button>
                     </div>
                     <div class="console" id="consoleOutput2"></div>
                     <div id="feedback2"></div>
                 </div>
             </div>
 
-            <div class="c hide" id="thirdPart">
-                <p>
-                    <br>
-                    This one exercice is a bit more difficult.
-                    <br>
-                    You need to print direction ("up", "down", "left", "right") according to where your character
-                    should go.
-                    <br>
-                    Each time you launch a program, listen to Pixi, he will say what can happen
-                    <br>
-                    To do so, use the "*" operator on strings.
-                    <br>
-                    And to make it more difficult you're only allow to one print.
-                    <br>
-                    <br>
-                    But take care, the shortest path isn't always the best.
-                    <br>
-                    Also you are allowed to put some space between the direction so it's more readable for you.
-                </p>
-
-                <div class="code-challenge" id="codeChallenge3">
-                    <textarea id="codeInput3"></textarea>
-                    <div class="row">
-                        <button id="runCode3">Execute</button>
-                        <script>
-                            function loadPrintHelp4() {
-                                window.open('helpFiles/operation.html', '_blank')
-                            }
-                        </script>
-                        <button class="btn" id="HelpGetPrint4" onclick="loadPrintHelp4()">Help</button>
-                    </div>
-                    <div class="console" id="consoleOutput3"></div>
-                    <div id="feedback3"></div>
-                </div>
-            </div>
-
-            <div class="hide" id="fourthPart">
-                <p>Isn't it the time to go try something harder ?.</p>
+            <div class="hide" id="thirdPart">
+                <p>Well done, you have finished the first chapter !!!
+                <br>
+                Let's discover the second chapter.</p>
                 <script>
                     function loadHome() {
                         window.location = '../index.html';
@@ -154,6 +186,6 @@ print(b)</textarea>
 
 
 
-    <script type="module" src="chap1exo4.js"></script>
+    <script type="module" src="chap1exo5.js"></script>
 </body>
 </html>
