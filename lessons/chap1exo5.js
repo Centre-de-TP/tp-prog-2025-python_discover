@@ -109,7 +109,7 @@ function runPythonCode2(codeInputId="codeInput2", outputId="consoleOutput2", fee
     // Configure Skulpt
     Sk.configure({
         output: function(text) {
-            outputEl.textContent += text; // écrit dans notre console
+            outputEl.textContent += ""; // écrit dans notre console
         },
         read: function(x) {
             if (Sk.builtinFiles === undefined || Sk.builtinFiles["files"][x] === undefined)
