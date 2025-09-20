@@ -1,0 +1,159 @@
+<!doctype html>
+<html lang="fr">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <link rel="stylesheet" href="style.css" />
+    <link rel="stylesheet" href="console.css" />
+    <link rel="stylesheet" href="../Pixi/assistant.css">
+    <link rel="stylesheet" href="longbody.css">
+
+    <script src="https://cdn.jsdelivr.net/npm/skulpt@1.2.0/dist/skulpt.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/skulpt@1.2.0/dist/skulpt-stdlib.js"></script>
+
+    <title>Chap1 - Exo4</title>
+</head>
+<body>
+    <header class="header">
+        <div class="brand">
+            <div class="logo">RC</div>
+            <div>
+                <div class="title">First steps in the new World</div>
+                <div class="subtitle">Python - Chapter1 - Exo4</div>
+            </div>
+        </div>
+    </header>
+
+    <main class="grid">
+        <section class="card">
+            <div class="lore-header">
+                <div class="lore-text">
+                    <h1>Chapter 1 - World discover</h1>
+                    <p>In this lesson you will enter the world of operations between objects.</p>
+                </div>
+            </div>
+            <p>
+                Let's introduce the concept of operation using objects or variables.
+                <br>
+                <br>
+                We will proceed in three steps.
+                <br>
+                First ask the user how much penny he has and store it in the variable named "penny".
+                <br>
+                The type of the variable must be an integer.
+                <br>
+                <br>
+                Then, the second step consist in asking the user how much dollar he has.
+                <br>
+                The result should be an integer and stored in the variable named "dollar".
+                <br>
+                <br>
+                The final step is to display to the user how much money he has.
+                <br>
+                Remember that a dollar has the symbol $ and is the value of a hundred penny which symbole is ¢.
+            </p>
+
+            <div class="code-challenge" id="codeChallenge">
+                <textarea id="codeInput">penny = 0
+dollar = 0</textarea>
+                <div class="row">
+                    <button id="runCode">Execute</button>
+                    <script>
+                        function loadPrintHelp5() {
+                            window.open('helpFiles/operation.html', '_blank')
+                        }
+                    </script>
+                    <button class="btn" id="HelpGetVar" onclick="loadPrintHelp5()">Help</button>
+                </div>
+                <div class="console" id="consoleOutput"></div>
+                <div id="feedback"></div>
+            </div>
+
+            <div class="c hide" id="secondPart">
+                <p>
+                    <br>
+                    Let's say that for each letter of the alphabet, there is already a variable which contain a string
+                    with the corresponding letter in it.
+                    <br>
+                    The goal is to create a code which combine all these letters to creat the world "river" and display
+                    it.
+                    <br>
+                    Now it's your turn to build something interesting.
+                </p>
+
+                <div class="code-challenge" id="codeChallenge2">
+                    <textarea id="codeInput2">print(a)
+print(b)</textarea>
+                    <div class="row">
+                        <button id="runCode2">Execute</button>
+                        <script>
+                            function loadPrintHelp4() {
+                                window.open('helpFiles/operation.html', '_blank')
+                            }
+                        </script>
+                        <button class="btn" id="HelpGetPrint2" onclick="loadPrintHelp5()">Help</button>
+                    </div>
+                    <div class="console" id="consoleOutput2"></div>
+                    <div id="feedback2"></div>
+                </div>
+            </div>
+
+            <div class="c hide" id="thirdPart">
+                <p>
+                    <br>
+                    This one exercice is a bit more difficult.
+                    <br>
+                    You need to print direction ("up", "down", "left", "right") according to where your character
+                    should go.
+                    <br>
+                    Each time you launch a program, listen to Pixi, he will say what can happen
+                    <br>
+                    To do so, use the "*" operator on strings.
+                    <br>
+                    And to make it more difficult you're only allow to one print.
+                    <br>
+                    <br>
+                    But take care, the shortest path isn't always the best.
+                    <br>
+                    Also you are allowed to put some space between the direction so it's more readable for you.
+                </p>
+
+                <div class="code-challenge" id="codeChallenge3">
+                    <textarea id="codeInput3"></textarea>
+                    <div class="row">
+                        <button id="runCode3">Execute</button>
+                        <script>
+                            function loadPrintHelp4() {
+                                window.open('helpFiles/operation.html', '_blank')
+                            }
+                        </script>
+                        <button class="btn" id="HelpGetPrint4" onclick="loadPrintHelp4()">Help</button>
+                    </div>
+                    <div class="console" id="consoleOutput3"></div>
+                    <div id="feedback3"></div>
+                </div>
+            </div>
+
+            <div class="hide" id="fourthPart">
+                <p>Isn't it the time to go try something harder ?.</p>
+                <script>
+                    function loadHome() {
+                        window.location = '../index.html';
+                    }
+                </script>
+                <div id="backButtonHidden">
+                    <button class="btn" id="getBack" onclick="loadHome()">🚪 Home</button>
+                </div>
+            </div>
+        </section>
+    </main>
+    <div class="assistant" id="assistant">
+        <img class= "assistantImg" src="../Pixi/normal.png" alt="Assistant" id="assistantImage" width="50px" height="50px">
+        <div class="bubble" id="assistantBubble"></div>
+    </div>
+
+
+
+    <script type="module" src="chap1exo4.js"></script>
+</body>
+</html>

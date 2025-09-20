@@ -1,0 +1,307 @@
+<!doctype html>
+<html lang="fr">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <link rel="stylesheet" href="style.css" />
+    <link rel="stylesheet" href="../table.css" />
+    <title>Python Help - Condition</title>
+</head>
+<body>
+<div class="container">
+    <header class="header">
+        <div class="brand">
+            <div class="logo">RC</div>
+            <div>
+                <div class="title">First steps in the new World</div>
+                <div class="subtitle">Python - Help - Condition</div>
+            </div>
+        </div>
+        <div class="row">
+            <button class="btn" id="DownloadAllPages">Download</button>
+        </div>
+    </header>
+    <h1 class="underline">The "Condition" in python</h1>
+    <div class="center-left">
+        <div class="column">
+            <h3 class="underline">The booleans</h3>
+            <p>
+                We saw a bit earlier the different types which could exist in the language.
+                <br>
+                May be you remember seeing "True" once.
+                <br>
+                <br>
+                Those values can be used to create a condition system.
+                <br>
+                Let's discover the boolean type and all the possible values.
+            </p>
+            <div class="table-container">
+                <table class="table">
+                    <thead>
+                    <tr>
+                        <th>Type</th>
+                        <th>Value</th>
+                        <th>Example</th>
+                        <th>Explanation</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    <tr>
+                        <td>bool</td>
+                        <td>True</td>
+                        <td>1 == 1</td>
+                        <td>This statement is a true statement, we now that 1 is equals to 1.</td>
+                    </tr>
+                    <tr>
+                        <td>bool</td>
+                        <td>True</td>
+                        <td>True</td>
+                        <td>You can also directly use the "True" value without creating a correct truth expression.</td>
+                    </tr>
+                    <tr>
+                        <td>bool</td>
+                        <td>False</td>
+                        <td>1 != 1</td>
+                        <td>On the other hand, 1 doesn't differ from 1 so this statement is incorrect.</td>
+                    </tr>
+                    </tbody>
+                </table>
+            </div>
+            <p>
+                As you can on the previous table, there is in python a type which represent the truth value of a given
+                statement.
+                <br>
+                And before you ask, YES it is possible to print the value of this statement.
+            </p>
+            <div class="code-block">print(1 != 1)
+>>> False
+print(type(1 != 1))
+>>> bool</div>
+            <p>
+                But as you could see, in programming we don't have all the mathematics symbols.
+                <br>
+                Therefore, we have to replace the symbols with the symbols we had.
+                <br>
+                As well, some symbols like the "=" were already taken for other operations (here the variable creation).
+                <br>
+                <br>
+                Let's see some examples :
+            </p>
+            <div class="table-container">
+                <table class="table">
+                    <thead>
+                    <tr>
+                        <th>Symbol Name</th>
+                        <th>Operator Symbol</th>
+                        <th>Example</th>
+                        <th>Result</th>
+                        <th>Second Example</th>
+                        <th>Result</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    <tr>
+                        <td>equal</td>
+                        <td>==</td>
+                        <td>1 == 1</td>
+                        <td>True</td>
+                        <td>1 == 2</td>
+                        <td>False</td>
+                    </tr>
+                    <tr>
+                        <td>not equal</td>
+                        <td>!=</td>
+                        <td>1 != 2</td>
+                        <td>True</td>
+                        <td>2 != 2</td>
+                        <td>False</td>
+                    </tr>
+                    <tr>
+                        <td>greater than</td>
+                        <td>></td>
+                        <td>3 > 2</td>
+                        <td>True</td>
+                        <td>1 > 2</td>
+                        <td>False</td>
+                    </tr>
+                    <tr>
+                        <td>lower than</td>
+                        <td><</td>
+                        <td>1 < 2</td>
+                        <td>True</td>
+                        <td>3 < 2</td>
+                        <td>False</td>
+                    </tr>
+                    <tr>
+                        <td>greater or equal</td>
+                        <td><=</td>
+                        <td>1 <= 2</td>
+                        <td>True</td>
+                        <td>2 <= 2</td>
+                        <td>True</td>
+                    </tr>
+                    <tr>
+                        <td>lower or equal</td>
+                        <td><=</td>
+                        <td>1 <= 2</td>
+                        <td>True</td>
+                        <td>2 <= 2</td>
+                        <td>True</td>
+                    </tr>
+                    <tr>
+                    </tbody>
+                </table>
+            </div>
+            <br>
+            <br>
+            <h3 class="underline">The condition checker</h3>
+            <p>
+                But you will ask "Why these things can be used for ?".
+                <br>
+                It's the time to introduce the conditions.
+                <br>
+                In programming, it could be a great thing to check if a value is correct before engaging another action.
+                <br>
+                <br>
+                Example :
+                <br>
+                Imagine a situation where I have a number and if the number is odd, I want to write "odd", otherwise I
+                should write "even".
+                <br>
+                To check if a number is odd, we have seen the modulo earlier which will help us a lot.
+                <br>
+                <br>
+                Here is an example :
+            </p>
+            <div class="code-block">number = int(input("Enter a number: "))
+print("The chosen number is " + str(number))
+
+if (number % 2 == 0) :
+    print("The number is even")
+else :
+    print("The number is odd")</div>
+            <p>
+                In the previous example we used two very important thing in python.
+                <br>
+                <br>
+                The first one is the use of a condition checker.
+                <br>
+                This will execute the actions within a given "scope" if the condition is true.
+                <br>
+                Two checker were used here.
+                <br>
+                The first one is an "if" statement which will execute the scope if the condition is true.
+                <br>
+                The second is an "else" statement which will execute the scope if the previous "if" condition isn't
+                true.
+                <br>
+                <br>
+                The second very important thing is the scope definition.
+                <br>
+                In python when an action depend on a previous line, it's mandatory to add a space right after it.
+                <br>
+                In the previous example, the print("The number is even") depend on the if statement.
+                <br>
+                This is used when the previous line ends with the symbol ":".
+                <br>
+                <br>
+                You will use some different condition checker from now one.
+                <br>
+                Let's see them :
+            </p>
+            <div class="table-container">
+                <table class="table">
+                    <thead>
+                    <tr>
+                        <th>Statement Name</th>
+                        <th>Construction</th>
+                        <th>Explanation</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    <tr>
+                        <td>if statement</td>
+                        <td>if (condition) :</td>
+                        <td>If the condition between the parenthesis is valid, the scope is executed.</td>
+                    </tr>
+                    <tr>
+                        <td>elif statement</td>
+                        <td>elif (condition) :</td>
+                        <td>If the previous "elif" and "if" 's condition weren't True and the condition between the
+                            parenthesis is valid, the scope is executed.</td>
+                    </tr>
+                    <tr>
+                        <td>else statement</td>
+                        <td>else :</td>
+                        <td>If the previous "elif" and "if" 's condition weren't True, the scope is executed.</td>
+                    </tr>
+
+                    </tbody>
+                </table>
+            </div>
+            <br>
+            <br>
+            <h3 class="underline">More complex conditions</h3>
+            <p>
+                Because we don't want the dev to write a lot of "if" statement when there is a complex condition to
+                check, we have added a very useful thing to the language.*
+                <br>
+                It's easy to say when a human is talking to another human that :
+                <br>
+                "he did something, and he did another thing".
+                <br>
+                <br>
+                In programming, it's the same.
+            </p>
+            <div class="table-container">
+                <table class="table">
+                    <thead>
+                    <tr>
+                        <th>Name</th>
+                        <th>Operator Symbol</th>
+                        <th>Utilisation</th>
+                        <th>Explanation</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    <tr>
+                        <td>AND</td>
+                        <td>and</td>
+                        <td>condition1 and condition2</td>
+                        <td>Both condition need to be True so the resulting one could be True.</td>
+                    </tr>
+                    <tr>
+                        <td>OR</td>
+                        <td>or</td>
+                        <td>condition1 or condition2</td>
+                        <td>At least one of the condition need to be True so the result is True.</td>
+                    </tr>
+                    </tbody>
+                </table>
+            </div>
+            <p>
+                If you want to go further, it's also possible to add parenthesis to create very complex conditions.
+                <br>
+                But for now let's have an example of these new statements.
+            </p>
+            <div class="code-block">number = int(input("Enter a number: "))
+number2 = int(input("Enter a second number: "))
+print("The chosen numbers are : " + str(number) + " and " + str(number2))
+
+sum = number + number2
+print("The sum is : " + str(sum))
+
+if (2 * number == sum and 2 * number2 == sum) :
+    print("The sum is the double of both numbers !")
+elif (2 * number == sum or 2 * number2 == sum) :
+    print("The sum is the double of one number only")</div>
+            <p>
+                <br>
+                <br>
+                This is the end of the lesson, don't forget to ask for help if you don't understand.
+            </p>
+        </div>
+    </div>
+</div>
+</body>
+</html>
