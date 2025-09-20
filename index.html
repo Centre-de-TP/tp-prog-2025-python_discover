@@ -108,7 +108,17 @@
                     <div class="tag">Exo 5</div>
                     <h3>Life is tests</h3>
                     <p>It's time to learn about conditions.</p>
-                    <button class="btn secondary">Open lesson</button>
+                    <script>
+                        function loadPage5() {
+                            if (checkRequiered(5)) {
+                                window.location = 'lessons/chap1exo5.html'
+                            }
+                            else {
+                                console.log("The level of your lesson's progress is to low.")
+                            }
+                        }
+                    </script>
+                    <button class="btn secondary" onclick="loadPage5()">Open lesson</button>
                 </article>
 
             </div>
