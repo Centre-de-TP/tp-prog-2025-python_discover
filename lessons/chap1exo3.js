@@ -122,19 +122,16 @@ function runPythonCode2(codeInputId="codeInput2", outputId="consoleOutput2", fee
     }).then(
         function(mod) {
             // Vérifie si la sortie est "open" pour ton exo
-            if (code.includes("int(a)") && code.includes("print") && code.includes("a =")
+            if ((code.includes("int(") || code.includes("int (")) && code.includes("print") && code.includes("=")
                 && code.includes("b =") && outputEl.textContent.includes("<class 'int'>")) {
                 feedback.textContent = "✅ Success! You did everything correctly.";
                 thirdText()
             }
-            else if (!code.includes("int(a)")) {
+            else if (!code.includes("int(") && !code.includes("int (")) {
                 feedback.textContent = "🤔 Did you forgot your cast ? Try to use the help button.";
             }
             else if (!code.includes("print")) {
                 feedback.textContent = "🤔 You are not displaying anything.";
-            }
-            else if (!code.includes("a =")) {
-                feedback.textContent = "🤔 The variable \"a\" hasn't been defined yet.";
             }
             else if (!code.includes("b =")) {
                 feedback.textContent = "🤔 The variable \"b\" hasn't been defined yet.";

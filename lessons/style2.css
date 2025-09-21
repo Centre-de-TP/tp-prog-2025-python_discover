@@ -15,7 +15,6 @@
 
 /* Reset minimal */
 *{box-sizing:border-box}
-html,body{height: 1000vh}
 body{
     margin:0;
     background: radial-gradient(1200px 600px at 10% 10%, rgba(124,108,255,0.08), transparent),
@@ -202,6 +201,7 @@ pre.code{
 /* Utility */
 .row{display:flex;gap:12px;align-items:center}
 .center{display:grid;place-items:center}
+/* Classe utilitaire pour cacher un élément */
 .hide {
     display: none !important;
 }
