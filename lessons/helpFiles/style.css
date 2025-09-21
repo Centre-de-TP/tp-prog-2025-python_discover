@@ -229,3 +229,10 @@ pre.code{
 .hide {
     display: none !important;
 }
+
+.returnButton {
+    position: fixed;
+    top: 20px;
+    left: 20px;
+    display: flex;
+}
