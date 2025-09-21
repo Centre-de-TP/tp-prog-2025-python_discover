@@ -98,6 +98,9 @@ async function main() {
 
     // Variable d'étape (1er ou 2e challenge)
     let step = 1;
+    let speech = new SpeechSynthesisUtterance();
+    speech.text = "hello";
+    window.speechSynthesis.speak(speech);
 
     // Exécution du code avec Skulpt
     document.getElementById("runCode").addEventListener("click", () => {
