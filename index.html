@@ -33,167 +33,50 @@
 
     <main class="grid">
         <div class="column">
-        <section class="card">
-            <div class="lore-header">
-                <div class="lore-illustration">🌲</div>
-                <div class="lore-text">
-                    <h1>Chapter 1 - World discover</h1>
-                    <p>This Chapter is composed of the real most basics python tools.</p>
+            <section class="card">
+                <div class="lore-header">
+                    <div class="lore-illustration">🌲</div>
+                    <div class="lore-text">
+                        <h1>Chapter 1 - World discover</h1>
+                        <p>This Chapter is composed of the real most basics python tools.</p>
+                    </div>
                 </div>
-            </div>
 
-            <div class="exo-grid">
-                <article class="exo">
-                    <div class="tag">Exo 1</div>
-                    <h3>Open Your Eyes</h3>
-                    <p>Display some text and see what the computer does.</p>
-                    <script>
-                        function loadPage1() {
-                            window.location = 'lessons/chap1exo1.html'
-                        }
-                    </script>
-                    <button class="btn secondary" onclick="loadPage1()">Open lesson</button>
-                </article>
-
-                <article class="exo">
-                    <div class="tag">Exo 2</div>
-                    <h3>Talk learning</h3>
-                    <p>Ask the user some information.</p>
-                    <script>
-                        function loadPage2() {
-                            if (checkRequiered(2)) {
-                                window.location = 'lessons/chap1exo2.html'
+                <div class="exo-grid">
+                    <article class="exo">
+                        <div class="tag">Exo 1</div>
+                        <h3>Open Your Eyes</h3>
+                        <p>Display some text and see what the computer does.</p>
+                        <script>
+                            function loadPage1() {
+                                window.location = 'lessons/chap1exo1.html'
                             }
-                            else {
-                                console.log("The level of your lesson's progress is to low.")
+                        </script>
+                        <button class="btn secondary" onclick="loadPage1()">Open lesson</button>
+                    </article>
+
+                    <article class="exo">
+                        <div class="tag">Exo 2</div>
+                        <h3>Talk learning</h3>
+                        <p>Ask the user some information.</p>
+                        <script>
+                            function loadPage2() {
+                                if (checkRequiered(2)) {
+                                    window.location = 'lessons/chap1exo2.html'
+                                }
+                                else {
+                                    console.log("The level of your lesson's progress is to low.")
+                                }
                             }
-                        }
-                    </script>
-                    <button class="btn secondary" onclick="loadPage2()">Open lesson</button>
-                </article>
+                        </script>
+                        <button class="btn secondary" onclick="loadPage2()">Open lesson</button>
+                    </article>
 
-                <article class="exo">
-                    <div class="tag">Exo 3</div>
-                    <h3>World if it could be classified</h3>
-                    <p>Discover python's types and variables.</p>
-                    <script>
-                    function loadPage3() {
-                        if (checkRequiered(3)) {
-                            window.location = 'lessons/chap1exo3.html'
-                        }
-                        else {
-                            console.log("The level of your lesson's progress is to low.")
-                        }
-                    }
-                </script>
-                    <button class="btn secondary" onclick="loadPage3()">Open lesson</button>
-                </article>
-
-                <article class="exo">
-                    <div class="tag">Exo 4</div>
-                    <h3>How to operate</h3>
-                    <p>The mathematics are everywhere, let's discover it.</p>
-                    <script>
-                        function loadPage4() {
-                            if (checkRequiered(4)) {
-                                window.location = 'lessons/chap1exo4.html'
-                            }
-                            else {
-                                console.log("The level of your lesson's progress is to low.")
-                            }
-                        }
-                    </script>
-                    <button class="btn secondary" onclick="loadPage4()">Open lesson</button>
-                </article>
-
-                <article class="exo">
-                    <div class="tag">Exo 5</div>
-                    <h3>Life is tests</h3>
-                    <p>It's time to learn about conditions.</p>
-                    <script>
-                        function loadPage5() {
-                            if (checkRequiered(5)) {
-                                window.location = 'lessons/chap1exo5.html'
-                            }
-                            else {
-                                console.log("The level of your lesson's progress is to low.")
-                            }
-                        }
-                    </script>
-                    <button class="btn secondary" onclick="loadPage5()">Open lesson</button>
-                </article>
-
-            </div>
-        </section>
-        <br>
-        <section class="card" id="Chapter2">
-            <div class="lore-header">
-                <div class="lore-illustration">⚔️</div>
-                <div class="lore-text">
-                    <h1>Chapter 2 - Prove Yourself</h1>
-                    <p>This Chapter will be used to make you discover python secondary tools.</p>
-                </div>
-            </div>
-
-            <div class="exo-grid">
-                <article class="exo">
-                    <div class="tag">Exo 1</div>
-                    <h3>Lists</h3>
-                    <p>lists.</p>
-                    <script>
-                        function loadPage1() {
-                            window.location = 'lessons/chap1exo1.html'
-                        }
-                    </script>
-                    <button class="btn secondary" onclick="loadPage1()">Open lesson</button>
-                </article>
-
-                <article class="exo">
-                    <div class="tag">Exo 1</div>
-                    <h3>for</h3>
-                    <p>for.</p>
-                    <script>
-                        function loadPage1() {
-                            window.location = 'lessons/chap1exo1.html'
-                        }
-                    </script>
-                    <button class="btn secondary" onclick="loadPage1()">Open lesson</button>
-                </article>
-
-                <article class="exo">
-                    <div class="tag">Exo 1</div>
-                    <h3>while</h3>
-                    <p>while.</p>
-                    <script>
-                        function loadPage1() {
-                            window.location = 'lessons/chap1exo1.html'
-                        }
-                    </script>
-                    <button class="btn secondary" onclick="loadPage1()">Open lesson</button>
-                </article>
-
-                <article class="exo">
-                    <div class="tag">Exo 2</div>
-                    <h3>Functions</h3>
-                    <p>functions.</p>
-                    <script>
-                        function loadPage2() {
-                            if (checkRequiered(2)) {
-                                window.location = 'lessons/chap1exo2.html'
-                            }
-                            else {
-                                console.log("The level of your lesson's progress is to low.")
-                            }
-                        }
-                    </script>
-                    <button class="btn secondary" onclick="loadPage2()">Open lesson</button>
-                </article>
-
-                <article class="exo">
-                    <div class="tag">Exo 3</div>
-                    <h3>Dictionaries</h3>
-                    <p>dictionaries and sets.</p>
-                    <script>
+                    <article class="exo">
+                        <div class="tag">Exo 3</div>
+                        <h3>World if it could be classified</h3>
+                        <p>Discover python's types and variables.</p>
+                        <script>
                         function loadPage3() {
                             if (checkRequiered(3)) {
                                 window.location = 'lessons/chap1exo3.html'
@@ -203,25 +86,13 @@
                             }
                         }
                     </script>
-                    <button class="btn secondary" onclick="loadPage3()">Open lesson</button>
-                </article>
+                        <button class="btn secondary" onclick="loadPage3()">Open lesson</button>
+                    </article>
 
-            </div>
-        </section>
-            <section class="card" id="Chapter3">
-                <div class="lore-header">
-                    <div class="lore-illustration">⚙️️</div>
-                    <div class="lore-text">
-                        <h1>Chapter 2 - Prove Yourself</h1>
-                        <p>This Chapter will be used to make you discover python secondary tools.</p>
-                    </div>
-                </div>
-
-                <div class="exo-grid">
                     <article class="exo">
                         <div class="tag">Exo 4</div>
-                        <h3>Libraries</h3>
-                        <p>libraries.</p>
+                        <h3>How to operate</h3>
+                        <p>The mathematics are everywhere, let's discover it.</p>
                         <script>
                             function loadPage4() {
                                 if (checkRequiered(4)) {
@@ -237,8 +108,8 @@
 
                     <article class="exo">
                         <div class="tag">Exo 5</div>
-                        <h3>IO</h3>
-                        <p>input output, using files.</p>
+                        <h3>Life is tests</h3>
+                        <p>It's time to learn about conditions.</p>
                         <script>
                             function loadPage5() {
                                 if (checkRequiered(5)) {
@@ -252,6 +123,140 @@
                         <button class="btn secondary" onclick="loadPage5()">Open lesson</button>
                     </article>
 
+                </div>
+            </section>
+            <br>
+            <section class="card hide" id="Chapter2">
+                <div class="lore-header">
+                    <div class="lore-illustration">⚔️</div>
+                    <div class="lore-text">
+                        <h1>Chapter 2 - Prove Yourself</h1>
+                        <p>This Chapter will be used to make you discover python secondary tools.</p>
+                    </div>
+                </div>
+
+                <div class="exo-grid">
+                    <article class="exo">
+                        <div class="tag">Exo 1</div>
+                        <h3>Lists</h3>
+                        <p>lists.</p>
+                        <script>
+                            function loadPage6() {
+                                window.location = 'lessons/chap1exo1.html'
+                            }
+                        </script>
+                        <button class="btn secondary" onclick="loadPage6()">Open lesson</button>
+                    </article>
+
+                    <article class="exo">
+                        <div class="tag">Exo 2</div>
+                        <h3>for</h3>
+                        <p>for.</p>
+                        <script>
+                            function loadPage7() {
+                                if (checkRequiered(7)) {
+                                    window.location = 'lessons/chap1exo2.html'
+                                }
+                                else {
+                                    console.log("The level of your lesson's progress is to low.")
+                                }
+                            }
+                        </script>
+                        <button class="btn secondary" onclick="loadPage7()">Open lesson</button>
+                    </article>
+
+                    <article class="exo">
+                        <div class="tag">Exo 3</div>
+                        <h3>while</h3>
+                        <p>while.</p>
+                        <script>
+                            function loadPage8() {
+                                if (checkRequiered(8)) {
+                                    window.location = 'lessons/chap1exo2.html'
+                                }
+                                else {
+                                    console.log("The level of your lesson's progress is to low.")
+                                }
+                            }
+                        </script>
+                        <button class="btn secondary" onclick="loadPage8()">Open lesson</button>
+                    </article>
+
+                    <article class="exo">
+                        <div class="tag">Exo 4</div>
+                        <h3>Functions</h3>
+                        <p>functions.</p>
+                        <script>
+                            function loadPage9() {
+                                if (checkRequiered(9)) {
+                                    window.location = 'lessons/chap1exo2.html'
+                                }
+                                else {
+                                    console.log("The level of your lesson's progress is to low.")
+                                }
+                            }
+                        </script>
+                        <button class="btn secondary" onclick="loadPage9()">Open lesson</button>
+                    </article>
+
+                    <article class="exo">
+                        <div class="tag">Exo 5</div>
+                        <h3>Dictionaries</h3>
+                        <p>dictionaries and sets.</p>
+                        <script>
+                            function loadPage10() {
+                                if (checkRequiered(10)) {
+                                    window.location = 'lessons/chap1exo3.html'
+                                }
+                                else {
+                                    console.log("The level of your lesson's progress is to low.")
+                                }
+                            }
+                        </script>
+                        <button class="btn secondary" onclick="loadPage10()">Open lesson</button>
+                    </article>
+
+                </div>
+            </section>
+            <br>
+            <section class="card hide" id="Chapter3">
+                <div class="lore-header">
+                    <div class="lore-illustration">⚙️️</div>
+                    <div class="lore-text">
+                        <h1>Chapter 3 - Academic Entry</h1>
+                        <p>In this chapter of python learning, you will learn about pre-build functions.</p>
+                    </div>
+                </div>
+
+                <div class="exo-grid">
+                    <article class="exo">
+                        <div class="tag">Exo 4</div>
+                        <h3>Libraries</h3>
+                        <p>libraries.</p>
+                        <script>
+                            function loadPage11() {
+                                window.location = 'lessons/chap1exo4.html'
+                            }
+                        </script>
+                        <button class="btn secondary" onclick="loadPage11()">Open lesson</button>
+                    </article>
+
+                    <article class="exo">
+                        <div class="tag">Exo 5</div>
+                        <h3>IO</h3>
+                        <p>input output, using files.</p>
+                        <script>
+                            function loadPage12() {
+                                if (checkRequiered(12)) {
+                                    window.location = 'lessons/chap1exo5.html'
+                                }
+                                else {
+                                    console.log("The level of your lesson's progress is to low.")
+                                }
+                            }
+                        </script>
+                        <button class="btn secondary" onclick="loadPage12()">Open lesson</button>
+                    </article>
                 </div>
             </section>
         </div>
