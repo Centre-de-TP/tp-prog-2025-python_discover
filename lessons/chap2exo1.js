@@ -61,7 +61,6 @@ function runPythonCode(codeInputId="codeInput", outputId="consoleOutput", feedba
     }).then(
         function(mod) {
             // .$d est un dict Python (Sk.builtin.dict)
-            // Set correction
             if (!code.includes("[")) {
                 feedback.textContent = "🤔 Maybe you forgot don't know how to use lists ? Try to use the help button.";
             }
@@ -103,8 +102,20 @@ function runPythonCode(codeInputId="codeInput", outputId="consoleOutput", feedba
     );
 }
 
+function createLetterList() {
+    let res = "letters = ["
+    for (const x of Array(5).keys()) {
+        res += "'" + String.fromCharCode('A'.charCodeAt(0) + x) + "'";
+        if (x < 25) {
+            res += ", "
+        }
+    }
+    res += "]\n"
+    return res;
+}
+
 function runPythonCode2(codeInputId="codeInput2", outputId="consoleOutput2", feedbackId="feedback2") {
-    const code = document.getElementById(codeInputId).value;
+    const code = createLetterList() + document.getElementById(codeInputId).value;
     const outputEl = document.getElementById(outputId);
     const feedback = document.getElementById(feedbackId);
 
@@ -133,26 +144,25 @@ function runPythonCode2(codeInputId="codeInput2", outputId="consoleOutput2", fee
         return Sk.importMainWithBody("<stdin>", false, code, true);
     }).then(
         function(mod) {
-            // Vérifie si la sortie est "open" pour ton exo
+            const result =  mod.$d.result;
+            if (result === undefined) {
+                feedback.textContent = "🤔 You are missing the result variable.";
+            }
             if ((code.includes("int(") || code.includes("int (")) && code.includes("print") && code.includes("=")
                 && code.includes("b =") && outputEl.textContent.includes("<class 'int'>")) {
                 feedback.textContent = "✅ Success! You did everything correctly.";
                 thirdText()
             }
-            else if (!code.includes("int(") && !code.includes("int (")) {
-                feedback.textContent = "🤔 Did you forgot your cast ? Try to use the help button.";
+            if (!code.includes("letters[") && !code.includes("letters [")) {
+                feedback.textContent = "🤔 You didn't used the list to create the result string.";
             }
-            else if (!code.includes("print")) {
-                feedback.textContent = "🤔 You are not displaying anything.";
-            }
-            else if (!code.includes("b =")) {
-                feedback.textContent = "🤔 The variable \"b\" hasn't been defined yet.";
-            }
-            else if (!outputEl.textContent.includes("<class 'int'>")) {
-                feedback.textContent = "🤔 The result class should look like : <class 'int'>";
+            else if (! (result.v === "Rivendell" || result.v === "Ironfell" || result.v === "Lurelin Village" ||result.v === "Midport Village")) {
+                feedback.textContent = "🤔 The result " + result.v + " isn't one of the listed cities. Please use the \"Speech\" button";
             }
             else {
-                feedback.textContent = "❌ The code wasn't correct. Let's try again!";
+                target_city = result.v;
+                feedback.textContent = "✅ Success! You did everything correctly.";
+                thirdText()
             }
         },
         function(err) {
