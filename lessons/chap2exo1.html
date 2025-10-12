@@ -35,15 +35,12 @@
             </div>
             <p>
                 <br>
-                We will discover the concept of variables.
+                The concept of the first exercice is to create a list of elements.
                 <br>
-                The goal here is to write a program which store a user input into a variable.
+                What you need to do is to add the elements one by one in the list and display the list at the end.
                 <br>
-                To do this, create a variable with the tag "username" and ask the user for his "Username" he wants.
                 <br>
-                Please, be careful to enter the correct strings in the correct spaces.
-                <br>
-                At the end of the script, try printing a nice sentence with this variable.
+                Don't forget to use the ones that Pixi gave you.
             </p>
 
             <div class="code-challenge" id="codeChallenge">
@@ -51,11 +48,12 @@
                 <div class="row">
                     <button id="runCode">Execute</button>
                     <script>
-                        function loadPrintHelp3() {
-                            window.open('helpFiles/variableAndTypes.html', '_blank')
+                        function loadPrintHelp1() {
+                            window.open('helpFiles/lists.html', '_blank')
                         }
                     </script>
-                    <button class="btn" id="HelpGetVar" onclick="loadPrintHelp3()">Help</button>
+                    <button id="reRun1">Speech</button>
+                    <button class="btn" id="HelpGetVar" onclick="loadPrintHelp1()">Help</button>
                 </div>
                 <div class="console" id="consoleOutput"></div>
                 <div id="feedback"></div>
@@ -64,29 +62,27 @@
             <div class="c hide" id="secondPart">
                 <p>
                     <br>
-                    Let's now try to use the cast methods to create a number from a string.
+                    In this second part, the goal is to build a word from the letters contained in a list.
                     <br>
-                    Write a program which asks the firstname of the user and then, his lastname.
+                    We have stored for you a list of all the letter in the variable "letters".
                     <br>
-                    The program should print the name of the user.
+                    At the end of your program, the variable "result" should be a string containing the requested word.
+                    <br>
+                    <br>
+                    The displays functions can be used and won't be evaluated.
                 </p>
 
                 <div class="code-challenge" id="codeChallenge2">
-                    <textarea id="codeInput2"># Replace the following comments to complete the code :
-
-# Create a variable which is a string representing a number.
-
-# Using the casting methods, create a variable "b" which is the copy of the integer value represented in the other variable.
-
-print(type(b))</textarea>
+                    <textarea id="codeInput2">print("Hello World !")</textarea>
                     <div class="row">
                         <button id="runCode2">Execute</button>
                         <script>
-                            function loadPrintHelp4() {
-                                window.open('helpFiles/Casting.html', '_blank')
+                            function loadPrintHelp1() {
+                                window.open('helpFiles/lists.html', '_blank')
                             }
                         </script>
-                        <button class="btn" id="HelpGetPrint2" onclick="loadPrintHelp4()">Help</button>
+                        <button id="reRun2">Speech</button>
+                        <button class="btn" id="HelpGetPrint2" onclick="loadPrintHelp1()">Help</button>
                     </div>
                     <div class="console" id="consoleOutput2"></div>
                     <div id="feedback2"></div>
@@ -94,7 +90,48 @@ print(type(b))</textarea>
             </div>
 
             <div class="hide" id="thirdPart">
-                <p>Isn't it the time to go try something harder ?.</p>
+                <p>
+                    Let's get back to the condition checker system and try to combine this with the list.
+                    <br>
+                    <br>
+                    The goal here is that you will play with a variable named "inputs" which we will define for you.
+                    <br>
+                    Also, a variable named "my_list" will be used and will be defined for you.
+                    <br>
+                    <br>
+                    The variable contain a list of 3 integer values.
+                    <br>
+                    If the value is equals to -1, you must remove the last element of the list.
+                    <br>
+                    If the value is equals to 1 or -1, you must print the list content.
+                    <br>
+                    If the value isn't in the previously stated values, then add a new object to the list.
+                    <br>
+                    <br>
+                    To determine the object to add, let make your imagination work.
+                    <br>
+                    In this kind of exercice, you should take care about the edge-cases.
+                </p>
+
+                <div class="code-challenge" id="codeChallenge3">
+                    <textarea id="codeInput3">print("Hello World !")</textarea>
+                    <div class="row">
+                        <button id="runCode3">Execute</button>
+                        <script>
+                            function loadPrintHelp1() {
+                                window.open('helpFiles/lists.html', '_blank')
+                            }
+                        </script>
+                        <button id="reRun3">Speech</button>
+                        <button class="btn" id="HelpGetPrint3" onclick="loadPrintHelp1()">Help</button>
+                    </div>
+                    <div class="console" id="consoleOutput3"></div>
+                    <div id="feedback3"></div>
+                </div>
+            </div>
+
+            <div class="hide" id="fourthPart">
+                <p>You have now unlocked the next exercice.</p>
                 <script>
                     function loadHome() {
                         window.location = '../index.html';
@@ -113,6 +150,6 @@ print(type(b))</textarea>
 
 
 
-    <script type="module" src="chap1exo3.js"></script>
+    <script type="module" src="chap2exo1.js"></script>
 </body>
 </html>
