@@ -258,7 +258,7 @@ function unhideThirdPart() {
 
 function unhideFourthPart() {
     UpdateSuccess(7);
-    const part = document.getElementById('thirdPart');
+    const part = document.getElementById('fourthPart');
     part.classList.remove("hide");
 }
 
