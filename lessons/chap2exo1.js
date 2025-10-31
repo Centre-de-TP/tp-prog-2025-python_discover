@@ -82,8 +82,8 @@ function runPythonCode(codeInputId="codeInput", outputId="consoleOutput", feedba
             else if (!((code.match(/special cake/g) || []).length === 3)) {
                 feedback.textContent = "🤔 The number of special cake is incorrect. Maybe you miss write it.";
             }
-            else if (!((code.match(/stack gold coin/g) || []).length === 8)) {
-                feedback.textContent = "🤔 The number of stack(s) of gold coin is incorrect. Maybe you miss write it.";
+            else if (!((code.match(/stack of gold coins/g) || []).length === 1)) {
+                feedback.textContent = "🤔 The number of stack(s) of gold coins is incorrect. Maybe you miss write it.";
             }
             else if (!(code.includes("print(") || code.includes("print ("))) {
                 feedback.textContent = "🤔 Please listen again to the speech to see what need to be added.";
@@ -104,8 +104,8 @@ function runPythonCode(codeInputId="codeInput", outputId="consoleOutput", feedba
 
 function createLetterList() {
     let res = "letters = ["
-    for (const x of Array(5).keys()) {
-        res += "'" + String.fromCharCode('A'.charCodeAt(0) + x) + "'";
+    for (const x of Array(26).keys()) {
+        res += "'" + String.fromCharCode('a'.charCodeAt(0) + x) + "'";
         if (x < 25) {
             res += ", "
         }
@@ -156,11 +156,11 @@ function runPythonCode2(codeInputId="codeInput2", outputId="consoleOutput2", fee
             if (!code.includes("letters[") && !code.includes("letters [")) {
                 feedback.textContent = "🤔 You didn't used the list to create the result string.";
             }
-            else if (! (result.v === "Rivendell" || result.v === "Ironfell" || result.v === "Lurelin Village" ||result.v === "Midport Village")) {
+            else if (! (result.v === "rivendell" || result.v === "ironfell" || result.v === "lurelin village" ||result.v === "midport village")) {
                 feedback.textContent = "🤔 The result " + result.v + " isn't one of the listed cities. Please use the \"Speech\" button";
             }
             else {
-                target_city = result.v;
+                target_city = result.v; //TODO: use it
                 feedback.textContent = "✅ Success! You did everything correctly.";
                 thirdText()
             }
@@ -171,8 +171,21 @@ function runPythonCode2(codeInputId="codeInput2", outputId="consoleOutput2", fee
     );
 }
 
-function runPythonCode3(codeInputId="codeInput2", outputId="consoleOutput2", feedbackId="feedback2") {
-    const code = document.getElementById(codeInputId).value;
+function defineStart(l) {
+    l.push((((Math.floor(Math.random() * 10)) % 3) - 1))
+    l.push((((Math.floor(Math.random() * 10)) % 3) - 1))
+    l.push((((Math.floor(Math.random() * 10)) % 3) - 1))
+    let res = "my_list = ['', '', '']\n"
+    res += "inputs = ["
+        + (l[0]).toString() + ", "
+        + (l[1]).toString() + ", "
+        + (l[2]).toString() + "]\n";
+    return res
+}
+
+function runPythonCode3(codeInputId="codeInput3", outputId="consoleOutput3", feedbackId="feedback3") {
+    let l = []
+    const code = defineStart(l) + document.getElementById(codeInputId).value;
     const outputEl = document.getElementById(outputId);
     const feedback = document.getElementById(feedbackId);
 
@@ -201,26 +214,30 @@ function runPythonCode3(codeInputId="codeInput2", outputId="consoleOutput2", fee
         return Sk.importMainWithBody("<stdin>", false, code, true);
     }).then(
         function(mod) {
-            // Vérifie si la sortie est "open" pour ton exo
-            if ((code.includes("int(") || code.includes("int (")) && code.includes("print") && code.includes("=")
-                && code.includes("b =") && outputEl.textContent.includes("<class 'int'>")) {
-                feedback.textContent = "✅ Success! You did everything correctly.";
-                thirdText()
+            const zeros = l.filter(function(it){ return it === 0 }).length
+            const ones = l.filter(function(it){ return it === 1 }).length
+            const m_ones = l.filter(function(it){ return it === -1 }).length
+            const final_length = 3 - m_ones + zeros
+
+            const result =  mod.$d.my_list;
+            if (result === undefined) {
+                feedback.textContent = "🤔 Did you removed the variable my_list ?";
             }
-            else if (!code.includes("int(") && !code.includes("int (")) {
-                feedback.textContent = "🤔 Did you forgot your cast ? Try to use the help button.";
+            else if (result.v.length !== final_length) {
+                feedback.textContent = "🤔 The output list has an incorrect size.";
             }
-            else if (!code.includes("print")) {
-                feedback.textContent = "🤔 You are not displaying anything.";
+            else if (!(code.includes('my_list.remove') || code.includes("my_list.pop"))) {
+                feedback.textContent = "🤔 Did you respect the number of minus one ?";
             }
-            else if (!code.includes("b =")) {
-                feedback.textContent = "🤔 The variable \"b\" hasn't been defined yet.";
+            else if (!(code.includes('print'))) {
+                feedback.textContent = "🤔 Did you respect the number of one/minus one ?";
             }
-            else if (!outputEl.textContent.includes("<class 'int'>")) {
-                feedback.textContent = "🤔 The result class should look like : <class 'int'>";
+            else if (!(code.includes('my_list.append'))) {
+                feedback.textContent = "🤔 Did you respect the number of zero ?";
             }
             else {
-                feedback.textContent = "❌ The code wasn't correct. Let's try again!";
+                feedback.textContent = "✅ Success! You did everything correctly.";
+                fourthText()
             }
         },
         function(err) {
