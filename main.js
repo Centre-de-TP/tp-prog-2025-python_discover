@@ -109,6 +109,7 @@ function checkRequiered(needed){
 }
 
 function unlockHelp(progress) {
+    let lines = []
     if (progress.status >= 4) {
         const part = document.getElementById('Help');
         part.classList.remove("hide");
@@ -127,11 +128,12 @@ function unlockHelp(progress) {
         const part = document.getElementById('bot');
         part.classList.remove("hide");
 
-        lines = [
-            [6000, "Nice to see you " + progress.username, "Pixi/happy.png"],
-            [10, "", "Pixi/normal.png"]
-        ];
-        playAssistantLines(lines)
+        if (progress.status !== 6 && progress.status !== 11)
+            lines = [
+                [6000, "Nice to see you " + progress.username, "Pixi/happy.png"],
+                [10, "", "Pixi/normal.png"]
+            ];
+            playAssistantLines(lines)
     }
 }
 
@@ -162,11 +164,43 @@ function playAssistantLines(lines) {
     showNextLine();
 }
 
+function unlockSection(progress) {
+    if (progress.status >= 6) {
+        section2 = document.getElementById("Chapter2");
+        section2.classList.remove("hide");
+        if (progress.status === 6) {
+            lines = [
+                [4000, "Hey " + progress.username + " !", "Pixi/happy.png"],
+                [4000, "You finally succeed to finish the first Chapter !!", "Pixi/happy.png"],
+                [6000, "Now, if you are ok with it, let's discover how to create more complex programs", "Pixi/normal.png"],
+                [10, "", "Pixi/normal.png"]
+            ];
+            playAssistantLines(lines)
+        }
+    }
+    if (progress.status >= 11) {
+        section3 = document.getElementById("Chapter3");
+        section3.classList.remove("hide");
+        if (progress.status === 11) {
+            lines = [
+                [3000, "Oh no !!!", "Pixi/happy.png"],
+                [5000, "You also succeeded to finish the chapter 2 !!", "Pixi/happy.png"],
+                [6000, "But then, it's time to enter the university right ?", "Pixi/normal.png"],
+                [6000, "Good luck " + progress.username, "Pixi/normal.png"],
+                [10, "", "Pixi/normal.png"]
+            ];
+            playAssistantLines(lines)
+        }
+    }
+}
+
 function main() {
     const progress = CheckJwt();
     console.log(progress);
     checkStatus(progress);
+
     unlockHelp(progress);
+    unlockSection(progress);
 }
 
 main()

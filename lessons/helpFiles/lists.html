@@ -1,0 +1,132 @@
+<!doctype html>
+<html lang="fr">
+<head>
+    <link rel="shortcut icon" href="/Pixi/happy.png" />
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <link rel="stylesheet" href="style.css" />
+    <link rel="stylesheet" href="../table.css" />
+    <title>Python Help - Lists</title>
+</head>
+<body>
+<div class="container">
+    <header class="header">
+        <div class="brand">
+            <div class="logo">Py</div>
+            <div>
+                <div class="title">First steps in the new World</div>
+                <div class="subtitle">Python - Help - Lists1</div>
+            </div>
+        </div>
+        <div class="row">
+            <button class="btn" id="DownloadAllPages">Download</button>
+        </div>
+    </header>
+    <h1 class="underline">The lists (manual 1)</h1>
+    <div class="center-left">
+        <div class="column">
+            <p>
+                If this thing didn't exist, then we will have a huge problem regarding a lot of situations.
+                <br>
+                Let's say that, you are doing some shopping, and you want to create a record of every item you bought.
+                <br>
+                With the elements you have learned until now, the only possibility is to create a huge amount of variables and fill them all.
+                <br>
+                <br>
+                The magic thing to solve this problem is the lists.
+                <br>
+                To make it simple, when you want to create a collection of objects, and you don't really know how many
+                of them you will have, you can create a list which can be used to store all the objects you want.
+                <br>
+                You can see an example below :
+            </p>
+            <div class="code-block"># Create the list named my_list
+my_list = ["a", "b", "c"]
+# Display the list
+print(my_list)
+>>>['a', 'b', 'c']</div>
+            <p>
+                Just to be sure that you follow correctly, the symbole ' as almost the same meaning in python that the symbole ".
+                <br>
+                The list here is filled with strings.
+                <br>
+                <br>
+                But a good thing in python is that the type of the elements contained in a list doesn't have to follow the same type.
+                <br>
+                As you can see in this example, it's possible to have multiple types in one single list.
+            </p>
+            <div class="code-block">my_list = ["a", True, 3, 4.7]
+>>></div>
+            <p>
+                It's the symbole , that creates the separation between the elements.
+                <br>
+                <br>
+                <br>
+                <br>
+                As a list is a complex object, you can use different kind of methods on the list.
+            </p>
+            <div class="table-container">
+                <table class="table">
+                    <thead>
+                    <tr>
+                        <th>Method Name</th>
+                        <th>Example</th>
+                        <th>Description</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    <tr>
+                        <td>append</td>
+                        <td>my_list.append(2)</td>
+                        <td>The append method allow you to add new elements inside a list. In this example, the int number 2 is added inside the list my_list.</td>
+                    </tr>
+                    <tr>
+                        <td>remove</td>
+                        <td>my_list.remove(1)</td>
+                        <td>The remove methods removes the first element that matchs the one that you gave. In this example, the first int 1 from the list my_list will be removed.</td>
+                    </tr>
+                    <tr>
+                        <td>pop</td>
+                        <td>my_list.pop()</td>
+                        <td>The remove methods removes the last element of a list.The method also has an output which is the removed element.</td>
+                    </tr>
+                    <tr>
+                        <td>clear</td>
+                        <td>my_list.clear()</td>
+                        <td>The clear method removes every element from the list, the list is then empty.</td>
+                    </tr>
+                    </tbody>
+                </table>
+            </div>
+            <div class="code-block">my_list = ["a", True, 3, 4.7]
+print(my_list.pop())
+>>>4.7</div>
+            <p>
+                As you can imagine it, many more exists, but it's not useful to lose you to soon so we will see them later.
+                <br>
+                <br>
+                <br>
+                Another important thing with the lists is that you can manage to access a specific element without popping each element and loosing them.
+                <br>
+                Well call it "index the list".
+                <br>
+                You can use the symbole "[" and "]" to specify the index of the element you want.
+                <br>
+                <br>
+                But be careful, in programming, we don't count in the same way that human usually do.
+                <br>
+                So the index of the first element isn't 1 but 0.
+            </p>
+            <div class="code-block">my_list = ["a", True, 3, 4.7]
+print(my_list[1])
+>>>True</div>
+            <p>
+                Be it's not useful to lose you, we will stop here for this lesson.
+                <br>
+                Don't forget to ask if you have any question about the subject.
+            </p>
+        </div>
+    </div>
+</div>
+</body>
+</html>

@@ -1,0 +1,155 @@
+<!doctype html>
+<html lang="fr">
+<head>
+    <link rel="shortcut icon" href="/Pixi/normal.png" />
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <link rel="stylesheet" href="style.css" />
+    <link rel="stylesheet" href="console.css" />
+    <link rel="stylesheet" href="../Pixi/assistant.css">
+    <link rel="stylesheet" href="longbody.css">
+
+    <script src="https://cdn.jsdelivr.net/npm/skulpt@1.2.0/dist/skulpt.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/skulpt@1.2.0/dist/skulpt-stdlib.js"></script>
+
+    <title>Chap2 - Exo1</title>
+</head>
+<body>
+    <header class="header">
+        <div class="brand">
+            <div class="logo">Py</div>
+            <div>
+                <div class="title">Second steps in the new World</div>
+                <div class="subtitle">Python - Chapter2 - Exo1</div>
+            </div>
+        </div>
+    </header>
+
+    <main class="grid">
+        <section class="card">
+            <div class="lore-header">
+                <div class="lore-text">
+                    <h1>Chapter 2 - Prove Yourself</h1>
+                    <p>In this step, you will learn how to create and use the lists.</p>
+                </div>
+            </div>
+            <p>
+                <br>
+                The concept of the first exercice is to create a list of elements.
+                <br>
+                What you need to do is to add the elements one by one in the list and display the list at the end.
+                <br>
+                <br>
+                Don't forget to use the ones that Pixi gave you.
+            </p>
+
+            <div class="code-challenge" id="codeChallenge">
+                <textarea id="codeInput">print("Hello")</textarea>
+                <div class="row">
+                    <button id="runCode">Execute</button>
+                    <script>
+                        function loadPrintHelp1() {
+                            window.open('helpFiles/lists.html', '_blank')
+                        }
+                    </script>
+                    <button id="reRun1">Speech</button>
+                    <button class="btn" id="HelpGetVar" onclick="loadPrintHelp1()">Help</button>
+                </div>
+                <div class="console" id="consoleOutput"></div>
+                <div id="feedback"></div>
+            </div>
+
+            <div class="c hide" id="secondPart">
+                <p>
+                    <br>
+                    In this second part, the goal is to build a word from the letters contained in a list.
+                    <br>
+                    We have stored for you a list of all the letter in the variable "letters".
+                    <br>
+                    At the end of your program, the variable "result" should be a string containing the requested word.
+                    <br>
+                    <br>
+                    The displays functions can be used and won't be evaluated.
+                </p>
+
+                <div class="code-challenge" id="codeChallenge2">
+                    <textarea id="codeInput2">print("Hello World !")</textarea>
+                    <div class="row">
+                        <button id="runCode2">Execute</button>
+                        <script>
+                            function loadPrintHelp1() {
+                                window.open('helpFiles/lists.html', '_blank')
+                            }
+                        </script>
+                        <button id="reRun2">Speech</button>
+                        <button class="btn" id="HelpGetPrint2" onclick="loadPrintHelp1()">Help</button>
+                    </div>
+                    <div class="console" id="consoleOutput2"></div>
+                    <div id="feedback2"></div>
+                </div>
+            </div>
+
+            <div class="hide" id="thirdPart">
+                <p>
+                    Let's get back to the condition checker system and try to combine this with the list.
+                    <br>
+                    <br>
+                    The goal here is that you will play with a variable named "inputs" which we will define for you.
+                    <br>
+                    Also, a variable named "my_list" will be used and will be defined for you.
+                    <br>
+                    <br>
+                    The variable contain a list of 3 integer values.
+                    <br>
+                    If the value is equals to -1, you must remove the last element of the list.
+                    <br>
+                    If the value is equals to 1 or -1, you must print the list content.
+                    <br>
+                    If the value isn't in the previously stated values, then add a new object to the list.
+                    <br>
+                    <br>
+                    To determine the object to add, let make your imagination work.
+                    <br>
+                    In this kind of exercice, you should take care about the edge-cases.
+                </p>
+
+                <div class="code-challenge" id="codeChallenge3">
+                    <textarea id="codeInput3">print("Hello World !")</textarea>
+                    <div class="row">
+                        <button id="runCode3">Execute</button>
+                        <script>
+                            function loadPrintHelp1() {
+                                window.open('helpFiles/lists.html', '_blank')
+                            }
+                        </script>
+                        <button id="reRun3">Speech</button>
+                        <button class="btn" id="HelpGetPrint3" onclick="loadPrintHelp1()">Help</button>
+                    </div>
+                    <div class="console" id="consoleOutput3"></div>
+                    <div id="feedback3"></div>
+                </div>
+            </div>
+
+            <div class="hide" id="fourthPart">
+                <p>You have now unlocked the next exercice.</p>
+                <script>
+                    function loadHome() {
+                        window.location = '../index.html';
+                    }
+                </script>
+                <div id="backButtonHidden">
+                    <button class="btn" id="getBack" onclick="loadHome()">🚪 Home</button>
+                </div>
+            </div>
+        </section>
+    </main>
+    <div class="assistant" id="assistant">
+        <img class= "assistantImg" src="../Pixi/normal.png" alt="Assistant" id="assistantImage" width="50px" height="50px">
+        <div class="bubble" id="assistantBubble"></div>
+    </div>
+
+
+
+    <script type="module" src="chap2exo1.js"></script>
+</body>
+</html>

@@ -1,0 +1,137 @@
+<!doctype html>
+<html lang="fr">
+<head>
+    <link rel="shortcut icon" href="/Pixi/happy.png" />
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <link rel="stylesheet" href="style.css" />
+    <link rel="stylesheet" href="../table.css" />
+    <title>Python Help - Functions</title>
+</head>
+<body>
+<div class="container">
+    <header class="header">
+        <div class="brand">
+            <div class="logo">Py</div>
+            <div>
+                <div class="title">First steps in the new World</div>
+                <div class="subtitle">Python - Help - Functions</div>
+            </div>
+        </div>
+        <div class="row">
+            <button class="btn" id="DownloadAllPages">Download</button>
+        </div>
+    </header>
+    <h1 class="underline">The Methods</h1>
+    <div class="center-left">
+        <div class="column">
+            <p>
+                Didn't you ask yourself about what exactly is a function ?
+                <br>
+                <br>
+                If you remember well what you have learned since the beginning, you should remember that you started the journey with something which we call the function "print".
+                <br>
+                But what exactly is a function ?
+                <br>
+                <br>
+                To make it simple, you can imagine a line of production in the real world.
+                <br>
+                I like to call it a factory.
+                <br>
+                It may need raw materials, and it will create a final product with it.
+                <br>
+                But this same product can be used in another factory to create even more complex products.
+                <br>
+                <br>
+                The "print" was an example of a function that takes on or multiple object of any type at the start of the process and creates no real output, but you can see a result action.
+                <br>
+                As a more explicit example, let's take the function "input".
+                <br>
+                If you try to describe how it works it would look like that :
+            </p>
+            <div class="code-block">response = input("my question")
+print(response)
+>>>my response</div>
+            <div class="table-container">
+                <table class="table">
+                    <thead>
+                    <tr>
+                        <th>Element</th>
+                        <th>Factory Comparison</th>
+                        <th>Description</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    <tr>
+                        <td>input</td>
+                        <td>The name of the factory</td>
+                        <td>Once a function is defined, you add a tag on it like for the variables so you can get them back and use it.</td>
+                    </tr>
+                    <tr>
+                        <td>(</td>
+                        <td>The left entry door of the factory</td>
+                        <td>This symbole is the mark for the starting point of the arguments (the raw material to give to the function).</td>
+                    </tr>
+                    <tr>
+                        <td>"my question"</td>
+                        <td>One of the factory raw material</td>
+                        <td>These that we call arguments are the objects that a function needs to work and do it staff.</td>
+                    </tr>
+                    <tr>
+                        <td>)</td>
+                        <td>The right door of the factory</td>
+                        <td>This symbole is the mark for the ending point of the arguments (the raw material to give to the function).</td>
+                    </tr>
+                    <tr>
+                        <td>my response</td>
+                        <td>The final product of the factory</td>
+                        <td>Most of the function can give an output, it the resulting object created by the function.</td>
+                    </tr>
+                    </tbody>
+                </table>
+            </div>
+            <p>
+                Before that you ask it, yes a function can need multiple arguments.
+                <br>
+                In those cases, we need to use the symbole "," to create a separation between them.
+                <br>
+                <br>
+                <br>
+                <br>
+                Imagine now that you are writing code and some action are being written multiple times.
+                <br>
+                Another interesting thing in programing is that you can also create your own functions.
+                <br>
+                To do that we created another keyword called "def".
+                <br>
+                This keyword will help you to define a function behaviour and once it is created you can use it as whenever you want.
+            </p>
+            <div class="code-block">def my_function(argument1, argument2) :
+  print(argument1 + argument2)
+  return argument1 + argument2
+
+my_function(1, 2)
+>>>3</div>
+            <p>
+                If the syntax reminds you something, it could be because of the condition checkers.
+                <br>
+                Here as well it's very important not to forget the space before the function action(s).
+                <br>
+                This defines the scope of activity of the function (what action is in the function, which one is outside).
+                <br>
+                <br>
+                Another thing about this example is that the tag assigned to the arguments (here argument1 and argument2) can be used only inside the function.
+                <br>
+                It will make no sens to call an element with the name it has inside a factory when you are home, your family will not understand.
+                <br>
+                Here it's the same, it makes no sens to use "argument1" outside the function "my_function".
+                <br>
+                <br>
+                <br>
+                This is the end of the lesson, don't forget to ask for help if you don't understand.
+            </p>
+        </div>
+    </div>
+</div>
+</body>
+</html>
