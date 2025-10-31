@@ -1,0 +1,146 @@
+<!doctype html>
+<html lang="fr">
+<head>
+    <link rel="shortcut icon" href="/Pixi/happy.png" />
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <link rel="stylesheet" href="style.css" />
+    <link rel="stylesheet" href="../table.css" />
+    <title>Python Help - Lists</title>
+</head>
+<body>
+<div class="container">
+    <header class="header">
+        <div class="brand">
+            <div class="logo">Py</div>
+            <div>
+                <div class="title">Second steps in the new World</div>
+                <div class="subtitle">Python - Help - Lists1</div>
+            </div>
+        </div>
+        <div class="row">
+            <button class="btn" id="DownloadAllPages">Download</button>
+        </div>
+    </header>
+    <h1 class="underline">The lists (manual 2)</h1>
+    <div class="center-left">
+        <div class="column">
+            <p>
+                <br>
+                If you forgot the first lesson you can always find it here :
+            </p>
+            <script>
+                function loadPrintHelp1() {
+                    window.open('lists.html', '_blank')
+                }
+            </script>
+            <button class="btn" id="HelpList1" onclick="loadPrintHelp1()">Help</button>
+            <p>
+                Here the goal is to add methods and functions so the lists are even easier to use for you.
+                <br>
+                But first you need to understand something about one most basic structure you learned.
+                <br>
+                <br>
+                I'm here talking about the string.
+                <br>
+                Don't you find the structure similar to the lists ?
+                <br>
+                Did you never ask yourself if the two structures were the same ?
+                <br>
+                The answer is located far inside the behaviour of a computer but basically a string is a list of
+                characters.
+                <br>
+                As well, since a computer understand only binary operation like True or False deep inside, a character
+                is a number in a range of characters we call the <a href="https://www.ascii-code.com/">ASCII Table</a>.
+                <br>
+                <br>
+                <br>
+                Now that you understood everything here, let's introduce the functions :
+            </p>
+            <div class="table-container">
+                <table class="table">
+                    <thead>
+                    <tr>
+                        <th>Function Name</th>
+                        <th>Example</th>
+                        <th>Description</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    <tr>
+                        <td>len</td>
+                        <td>len(my_list)</td>
+                        <td>The len function calculates the size of the list (size meaning the number of element).</td>
+                    </tr>
+                    <tr>
+                        <td>len</td>
+                        <td>len(my_string)</td>
+                        <td>The len function calculates the size of the string (size meaning the number of characters).</td>
+                    </tr>
+                    </tbody>
+                </table>
+            </div>
+            <div class="table-container">
+                <table class="table">
+                    <thead>
+                    <tr>
+                        <th>Method Name</th>
+                        <th>Example</th>
+                        <th>Description</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    <tr>
+                        <td>join</td>
+                        <td>my_separator_string.join(my_list_of_string)</td>
+                        <td>
+                            The join method combine all the strings inside the list given in argument separating each
+                            by the string it's called on.
+                        </td>
+                    </tr>
+                    </tbody>
+                </table>
+            </div>
+            <p>
+                <br>
+                Now that you get those functions, some functions may be useful as well for playing with characters.
+                <br>
+                If you remember the lesson about the cast function in python, you'll probably see a similarity.
+            </p>
+            <div class="table-container">
+                <table class="table">
+                    <thead>
+                    <tr>
+                        <th>Function Name</th>
+                        <th>Example</th>
+                        <th>Description</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    <tr>
+                        <td>ord</td>
+                        <td>ord("A")</td>
+                        <td>
+                            The ord function takes a string of length equal to one, and it returns the ASCII value of it.
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>chr</td>
+                        <td>chr(65)</td>
+                        <td>
+                            The ord function takes an int, and it returns the character with the corresponding ASCII
+                            value.
+                        </td>
+                    </tr>
+                    </tbody>
+                </table>
+            </div>
+            <p>
+                <br>
+                Don't forget to ask if you have any question about the subject.
+            </p>
+        </div>
+    </div>
+</div>
+</body>
+</html>
